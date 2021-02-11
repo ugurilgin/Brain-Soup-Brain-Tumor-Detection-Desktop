@@ -24,3 +24,7 @@ G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\bin\Debug\System.
 G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\bin\Debug\System.Threading.Tasks.Extensions.xml
 G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.Register.resources
+G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.Error.resources
+G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.Main.resources
+G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.ProfilePage.resources
+G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.PatientPage.resources

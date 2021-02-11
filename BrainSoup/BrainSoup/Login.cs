@@ -12,6 +12,7 @@ using MySqlConnector;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+
 namespace BrainSoup
 {
     public partial class LoginPage : Form
@@ -27,6 +28,7 @@ namespace BrainSoup
         string userkey;
         private void LoginPage_Load(object sender, EventArgs e)
         {
+            Style.formState = FormWindowState.Normal;
             string yol = System.AppDomain.CurrentDomain.BaseDirectory;
             UserInformation.savedUser = System.IO.File.ReadAllLines(yol + "auth.txt");
             if(UserInformation.savedUser[2]=="true")
@@ -61,34 +63,18 @@ namespace BrainSoup
                 passwordProvider.SetError(Password, "Bu Alan Boş Geçilemez");
                 
             }
-            if(Email.Text !="" && Password.Text!="")
+            if (Email.Text != "" && Password.Text != "")
             {
-                Sql.Login(Email.Text, Password.Text);
-                MessageBox.Show(UserInformation.UserKey);
-                if(Remember.Checked==true)
-                {
-                    using (StreamWriter sw = new StreamWriter(@"auth.txt", false))
-                    {
-                        sw.WriteLine(Email.Text);
-                        sw.WriteLine(Password.Text);
-                        sw.WriteLine("true");
-                        sw.Close();
-                    }
-                }
-                else
-                {
-                    using (StreamWriter sw = new StreamWriter(@"auth.txt", false))
-                    {
-                        sw.WriteLine(Email.Text);
-                        sw.WriteLine(Password.Text);
-                        sw.WriteLine("false");
-                        sw.Close();
-                    }
+                Sql.Login(Email.Text, Password.Text,this,Remember);
 
-                }
                
+           
+                
+
             }
-            
+            else
+                Style.Error("Lütfen Tüm Alanları Doldurunuz");
+          
 
 
         }
@@ -195,6 +181,7 @@ namespace BrainSoup
             if (Email.Text == "")
             {
                 mailProvider.SetError(Email, "Bu Alan Boş Geçilemez");
+                Style.Error("Lütfen Mail Adresinizi Giriniz");
                 passwordProvider.Clear();
             }
             else

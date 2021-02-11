@@ -44,12 +44,12 @@ namespace BrainSoup
         {
             if (NameT.Text == "")
             {
-                nameProvider.SetError(Email, "Bu Alan Boş Geçilemez");
+                nameProvider.SetError(NameT, "Bu Alan Boş Geçilemez");
 
             }
             if (Surname.Text == "")
             {
-                surnameProvider.SetError(Email, "Bu Alan Boş Geçilemez");
+                surnameProvider.SetError(Surname, "Bu Alan Boş Geçilemez");
 
             }
             if (Email.Text == "")
@@ -74,15 +74,14 @@ namespace BrainSoup
                     else
 
                     {
-                        MessageBox.Show("Bu Mail cvar");
+                        Style.Error("Bu Mail Adresi Zaten Kullanılıyor");
                     }
                         
                 }
                 else
-                    MessageBox.Show("Hata");
+                    Style.Error("Lütfen Geçerli Bir Mail Adresi Giriniz");
             }
             
-
 
         }
 
