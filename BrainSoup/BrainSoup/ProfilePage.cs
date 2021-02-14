@@ -362,5 +362,10 @@ namespace BrainSoup
             }
             Sql.UserInfo();
         }
+
+        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Style.Maximize(this);
+        }
     }
 }

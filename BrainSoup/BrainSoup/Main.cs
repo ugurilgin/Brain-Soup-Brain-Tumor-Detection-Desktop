@@ -442,5 +442,17 @@ namespace BrainSoup
             this.Close();
             frm.Show();
         }
+
+        private void Rapor_Click(object sender, EventArgs e)
+        {
+            PredictPage frm = new PredictPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Style.Maximize(this);
+        }
     }
 }

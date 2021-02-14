@@ -14,7 +14,7 @@ namespace BrainSoup
     {
 
         public static string mailUser = "********";
-        public static string mailPasword = "*********";
+        public static string mailPasword = "**********";
         public static string  GetValidEmail(string email)
         {
             try

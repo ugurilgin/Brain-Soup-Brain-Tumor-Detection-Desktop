@@ -78,6 +78,12 @@
     <Compile Include="Error.designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
+    <Compile Include="PredictPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PredictPage.Designer.cs">
+      <DependentUpon>PredictPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     <Compile Include="UserInformation.cs" />
     <EmbeddedResource Include="Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PredictPage.resx">
+      <DependentUpon>PredictPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientPage.resx">
       <DependentUpon>PatientPage.cs</DependentUpon>

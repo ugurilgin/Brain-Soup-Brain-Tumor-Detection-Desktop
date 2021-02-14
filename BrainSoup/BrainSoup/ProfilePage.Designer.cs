@@ -145,9 +145,9 @@
             this.title.ForeColor = System.Drawing.Color.White;
             this.title.Location = new System.Drawing.Point(519, 9);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(312, 13);
+            this.title.Size = new System.Drawing.Size(290, 13);
             this.title.TabIndex = 2;
-            this.title.Text = "BrainSoup Beyin Tümörü Tespiti Masaüstü Uygulaması-Anamenü";
+            this.title.Text = "BrainSoup Beyin Tümörü Tespiti Masaüstü Uygulaması-Profil";
             this.title.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.title_MouseDoubleClick);
             this.title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.title_MouseDown);
             this.title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.title_MouseMove);
@@ -400,6 +400,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
@@ -651,6 +652,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1366, 768);
             this.Name = "ProfilePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";

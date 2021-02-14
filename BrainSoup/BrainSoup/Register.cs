@@ -81,7 +81,8 @@ namespace BrainSoup
                 else
                     Style.Error("Lütfen Geçerli Bir Mail Adresi Giriniz");
             }
-            
+           
+
 
         }
 

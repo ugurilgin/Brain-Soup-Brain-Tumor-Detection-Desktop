@@ -1,7 +1,6 @@
 ﻿namespace BrainSoup
 {
-    partial class PatientPage
-
+    partial class PredictPage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientPage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PredictPage));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Minimize = new System.Windows.Forms.PictureBox();
@@ -60,6 +59,13 @@
             this.MR = new System.Windows.Forms.Button();
             this.Hasta = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.Searh = new System.Windows.Forms.Button();
+            this.fileName = new System.Windows.Forms.Label();
+            this.predictImage = new System.Windows.Forms.PictureBox();
+            this.Submit = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
@@ -69,6 +75,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.predictImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -132,9 +141,9 @@
             this.title.ForeColor = System.Drawing.Color.White;
             this.title.Location = new System.Drawing.Point(519, 9);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(312, 13);
+            this.title.Size = new System.Drawing.Size(316, 13);
             this.title.TabIndex = 2;
-            this.title.Text = "BrainSoup Beyin Tümörü Tespiti Masaüstü Uygulaması-Anamenü";
+            this.title.Text = "BrainSoup Beyin Tümörü Tespiti Masaüstü Uygulaması-MR İncele\r\n";
             this.title.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.title_MouseDoubleClick);
             this.title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.title_MouseDown);
             this.title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.title_MouseMove);
@@ -350,6 +359,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Profil";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -366,16 +376,18 @@
             // 
             // Rapor
             // 
+            this.Rapor.BackColor = System.Drawing.Color.White;
             this.Rapor.FlatAppearance.BorderSize = 0;
+            this.Rapor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Rapor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Rapor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Rapor.ForeColor = System.Drawing.Color.White;
-            this.Rapor.Location = new System.Drawing.Point(3, 421);
+            this.Rapor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.Rapor.Location = new System.Drawing.Point(0, 421);
             this.Rapor.Name = "Rapor";
             this.Rapor.Size = new System.Drawing.Size(261, 54);
             this.Rapor.TabIndex = 8;
             this.Rapor.Text = "MR İncele";
-            this.Rapor.UseVisualStyleBackColor = true;
+            this.Rapor.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -395,7 +407,6 @@
             // 
             this.Anamenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
             this.Anamenu.FlatAppearance.BorderSize = 0;
-            this.Anamenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Anamenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Anamenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Anamenu.ForeColor = System.Drawing.Color.White;
@@ -405,6 +416,7 @@
             this.Anamenu.TabIndex = 5;
             this.Anamenu.Text = "Ana Menü";
             this.Anamenu.UseVisualStyleBackColor = false;
+            this.Anamenu.Click += new System.EventHandler(this.Anamenu_Click);
             // 
             // MR
             // 
@@ -423,12 +435,11 @@
             // 
             // Hasta
             // 
-            this.Hasta.BackColor = System.Drawing.Color.White;
+            this.Hasta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
             this.Hasta.FlatAppearance.BorderSize = 0;
-            this.Hasta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Hasta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Hasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Hasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.Hasta.ForeColor = System.Drawing.Color.White;
             this.Hasta.Location = new System.Drawing.Point(0, 241);
             this.Hasta.Name = "Hasta";
             this.Hasta.Size = new System.Drawing.Size(260, 54);
@@ -442,6 +453,9 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.Submit);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(260, 30);
             this.panel4.Name = "panel4";
@@ -452,8 +466,106 @@
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
             this.panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseUp);
             // 
-            // PatientPage
+            // label1
             // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.label1.Location = new System.Drawing.Point(423, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(217, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "MR Görüntüsü İnceleyin\r\n";
+            this.label1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDoubleClick);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
+            this.label1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label1_MouseUp);
+            // 
+            // panel5
+            // 
+            this.panel5.AllowDrop = true;
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.Searh);
+            this.panel5.Controls.Add(this.fileName);
+            this.panel5.Controls.Add(this.predictImage);
+            this.panel5.Location = new System.Drawing.Point(51, 94);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(941, 490);
+            this.panel5.TabIndex = 24;
+            this.panel5.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel5_DragDrop);
+            this.panel5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel5_DragEnter);
+            this.panel5.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDoubleClick);
+            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
+            this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
+            this.panel5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label1_MouseUp);
+            // 
+            // Searh
+            // 
+            this.Searh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.Searh.FlatAppearance.BorderSize = 0;
+            this.Searh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Searh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Searh.ForeColor = System.Drawing.Color.White;
+            this.Searh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Searh.Location = new System.Drawing.Point(793, 422);
+            this.Searh.Name = "Searh";
+            this.Searh.Size = new System.Drawing.Size(120, 40);
+            this.Searh.TabIndex = 29;
+            this.Searh.Text = " Dosyadan Seçin...";
+            this.Searh.UseVisualStyleBackColor = false;
+            this.Searh.Click += new System.EventHandler(this.Searh_Click);
+            // 
+            // fileName
+            // 
+            this.fileName.AutoSize = true;
+            this.fileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.fileName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.fileName.Location = new System.Drawing.Point(35, 442);
+            this.fileName.Name = "fileName";
+            this.fileName.Size = new System.Drawing.Size(77, 16);
+            this.fileName.TabIndex = 28;
+            this.fileName.Text = "Dosya Adı: ";
+            this.fileName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDoubleClick);
+            this.fileName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
+            this.fileName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
+            this.fileName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label1_MouseUp);
+            // 
+            // predictImage
+            // 
+            this.predictImage.Image = ((System.Drawing.Image)(resources.GetObject("predictImage.Image")));
+            this.predictImage.Location = new System.Drawing.Point(158, 74);
+            this.predictImage.Name = "predictImage";
+            this.predictImage.Size = new System.Drawing.Size(601, 321);
+            this.predictImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.predictImage.TabIndex = 22;
+            this.predictImage.TabStop = false;
+            this.predictImage.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDoubleClick);
+            this.predictImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
+            this.predictImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
+            this.predictImage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label1_MouseUp);
+            // 
+            // Submit
+            // 
+            this.Submit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.Submit.FlatAppearance.BorderSize = 0;
+            this.Submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Submit.ForeColor = System.Drawing.Color.White;
+            this.Submit.Location = new System.Drawing.Point(406, 590);
+            this.Submit.Name = "Submit";
+            this.Submit.Size = new System.Drawing.Size(213, 53);
+            this.Submit.TabIndex = 21;
+            this.Submit.Text = "MR İncele";
+            this.Submit.UseVisualStyleBackColor = false;
+            this.Submit.Click += new System.EventHandler(this.Submit_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // PredictPage
+            // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1298, 728);
@@ -464,7 +576,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1366, 768);
-            this.Name = "PatientPage";
+            this.Name = "PredictPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
@@ -479,6 +591,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.predictImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -515,5 +631,12 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Rapor;
+        private System.Windows.Forms.PictureBox predictImage;
+        private System.Windows.Forms.Button Submit;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label fileName;
+        private System.Windows.Forms.Button Searh;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
