@@ -1,7 +1,6 @@
 ﻿namespace BrainSoup
 {
-    partial class PatientPage
-
+    partial class UnsavedPage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientPage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnsavedPage));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Minimize = new System.Windows.Forms.PictureBox();
@@ -60,27 +59,19 @@
             this.MR = new System.Windows.Forms.Button();
             this.Hasta = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.Submit = new System.Windows.Forms.Button();
+            this.Result = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TC = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tumorBox = new System.Windows.Forms.PictureBox();
+            this.imgBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.TCSearch = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Delete = new System.Windows.Forms.PictureBox();
             this.Search = new System.Windows.Forms.PictureBox();
-            this.Refresh = new System.Windows.Forms.PictureBox();
-            this.Update = new System.Windows.Forms.Button();
-            this.TC = new System.Windows.Forms.MaskedTextBox();
-            this.Cinsiyet = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.DateT = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.NameT = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Surname = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Submit = new System.Windows.Forms.Button();
-            this.Email = new System.Windows.Forms.TextBox();
             this.DataView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -92,10 +83,10 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tumorBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Delete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Search)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Refresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -381,16 +372,18 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(-2, 361);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.button1.Location = new System.Drawing.Point(-1, 361);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(261, 54);
             this.button1.TabIndex = 9;
             this.button1.Text = "Kaydedilmemiş MR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Rapor
             // 
@@ -432,9 +425,6 @@
             this.Anamenu.TabIndex = 5;
             this.Anamenu.Text = "Ana Menü";
             this.Anamenu.UseVisualStyleBackColor = false;
-            this.Anamenu.Click += new System.EventHandler(this.Anamenu_Click);
-            this.Anamenu.MouseEnter += new System.EventHandler(this.Anamenu_MouseEnter);
-            this.Anamenu.MouseLeave += new System.EventHandler(this.Anamenu_MouseLeave);
             // 
             // MR
             // 
@@ -453,12 +443,11 @@
             // 
             // Hasta
             // 
-            this.Hasta.BackColor = System.Drawing.Color.White;
+            this.Hasta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
             this.Hasta.FlatAppearance.BorderSize = 0;
-            this.Hasta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Hasta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Hasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Hasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.Hasta.ForeColor = System.Drawing.Color.White;
             this.Hasta.Location = new System.Drawing.Point(0, 241);
             this.Hasta.Name = "Hasta";
             this.Hasta.Size = new System.Drawing.Size(260, 54);
@@ -466,27 +455,22 @@
             this.Hasta.Text = "Hastalar";
             this.Hasta.UseVisualStyleBackColor = false;
             this.Hasta.Click += new System.EventHandler(this.Hasta_Click);
+            this.Hasta.MouseEnter += new System.EventHandler(this.Hasta_MouseEnter);
+            this.Hasta.MouseLeave += new System.EventHandler(this.Hasta_MouseLeave);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.Refresh);
-            this.panel4.Controls.Add(this.Update);
-            this.panel4.Controls.Add(this.TC);
-            this.panel4.Controls.Add(this.Cinsiyet);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.DateT);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.NameT);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.Surname);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.linkLabel2);
             this.panel4.Controls.Add(this.Submit);
-            this.panel4.Controls.Add(this.Email);
+            this.panel4.Controls.Add(this.Result);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.TC);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.tumorBox);
+            this.panel4.Controls.Add(this.imgBox);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.DataView);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(260, 30);
@@ -498,17 +482,147 @@
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
             this.panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseUp);
             // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.linkLabel2.Location = new System.Drawing.Point(790, 241);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(235, 18);
+            this.linkLabel2.TabIndex = 58;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Yeni Hasta Eklemek için Tıklayınız.";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // Submit
+            // 
+            this.Submit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.Submit.FlatAppearance.BorderSize = 0;
+            this.Submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Submit.ForeColor = System.Drawing.Color.White;
+            this.Submit.Location = new System.Drawing.Point(809, 288);
+            this.Submit.Name = "Submit";
+            this.Submit.Size = new System.Drawing.Size(199, 41);
+            this.Submit.TabIndex = 57;
+            this.Submit.Text = "Kaydet";
+            this.Submit.UseVisualStyleBackColor = false;
+            this.Submit.Click += new System.EventHandler(this.Submit_Click);
+            // 
+            // Result
+            // 
+            this.Result.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Result.FormattingEnabled = true;
+            this.Result.Items.AddRange(new object[] {
+            "Tümör Bulundu",
+            "Tümör Bulunamadı"});
+            this.Result.Location = new System.Drawing.Point(793, 195);
+            this.Result.Name = "Result";
+            this.Result.Size = new System.Drawing.Size(199, 28);
+            this.Result.TabIndex = 56;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Location = new System.Drawing.Point(793, 159);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 20);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "Tümör Sonucu:";
+            this.label2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
+            this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
+            this.label2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
+            // 
+            // TC
+            // 
+            this.TC.Enabled = false;
+            this.TC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TC.Location = new System.Drawing.Point(793, 122);
+            this.TC.Mask = "00000000000";
+            this.TC.Name = "TC";
+            this.TC.Size = new System.Drawing.Size(201, 26);
+            this.TC.TabIndex = 54;
+            this.TC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TC.ValidatingType = typeof(int);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.Location = new System.Drawing.Point(789, 86);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(125, 20);
+            this.label6.TabIndex = 53;
+            this.label6.Text = "Hastanın TC No:";
+            this.label6.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
+            this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
+            this.label6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
+            this.label6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
+            // 
+            // tumorBox
+            // 
+            this.tumorBox.Location = new System.Drawing.Point(407, 71);
+            this.tumorBox.Name = "tumorBox";
+            this.tumorBox.Size = new System.Drawing.Size(325, 310);
+            this.tumorBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.tumorBox.TabIndex = 52;
+            this.tumorBox.TabStop = false;
+            this.tumorBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
+            this.tumorBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
+            this.tumorBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
+            this.tumorBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
+            // 
+            // imgBox
+            // 
+            this.imgBox.Location = new System.Drawing.Point(38, 71);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(325, 310);
+            this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgBox.TabIndex = 51;
+            this.imgBox.TabStop = false;
+            this.imgBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
+            this.imgBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
+            this.imgBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
+            this.imgBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.label1.Location = new System.Drawing.Point(438, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 24);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "MR Sonucu";
+            this.label1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
+            this.label1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
+            // 
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel5.Controls.Add(this.TCSearch);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.Delete);
             this.panel5.Controls.Add(this.Search);
-            this.panel5.Location = new System.Drawing.Point(3, 380);
+            this.panel5.Location = new System.Drawing.Point(10, 454);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(358, 46);
-            this.panel5.TabIndex = 48;
+            this.panel5.Size = new System.Drawing.Size(325, 46);
+            this.panel5.TabIndex = 49;
+            this.panel5.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
+            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
+            this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
+            this.panel5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
             // 
             // TCSearch
             // 
@@ -539,20 +653,6 @@
             this.label4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
             this.label4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
             // 
-            // Delete
-            // 
-            this.Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.Location = new System.Drawing.Point(326, 11);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(29, 27);
-            this.Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Delete.TabIndex = 46;
-            this.Delete.TabStop = false;
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
-            this.Delete.MouseEnter += new System.EventHandler(this.Delete_MouseEnter);
-            this.Delete.MouseLeave += new System.EventHandler(this.Delete_MouseLeave);
-            // 
             // Search
             // 
             this.Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
@@ -567,244 +667,18 @@
             this.Search.MouseEnter += new System.EventHandler(this.Search_MouseEnter);
             this.Search.MouseLeave += new System.EventHandler(this.Search_MouseLeave);
             // 
-            // Refresh
-            // 
-            this.Refresh.BackColor = System.Drawing.Color.White;
-            this.Refresh.Image = ((System.Drawing.Image)(resources.GetObject("Refresh.Image")));
-            this.Refresh.Location = new System.Drawing.Point(988, 284);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(20, 20);
-            this.Refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Refresh.TabIndex = 47;
-            this.Refresh.TabStop = false;
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
-            // 
-            // Update
-            // 
-            this.Update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.Update.FlatAppearance.BorderSize = 0;
-            this.Update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Update.ForeColor = System.Drawing.Color.White;
-            this.Update.Location = new System.Drawing.Point(401, 284);
-            this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(213, 41);
-            this.Update.TabIndex = 44;
-            this.Update.Text = "Güncelle";
-            this.Update.UseVisualStyleBackColor = false;
-            this.Update.Visible = false;
-            this.Update.Click += new System.EventHandler(this.Update_Click);
-            // 
-            // TC
-            // 
-            this.TC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.TC.Location = new System.Drawing.Point(208, 208);
-            this.TC.Mask = "00000000000";
-            this.TC.Name = "TC";
-            this.TC.Size = new System.Drawing.Size(303, 26);
-            this.TC.TabIndex = 43;
-            this.TC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TC.ValidatingType = typeof(int);
-            // 
-            // Cinsiyet
-            // 
-            this.Cinsiyet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Cinsiyet.FormattingEnabled = true;
-            this.Cinsiyet.Items.AddRange(new object[] {
-            "Kadın",
-            "Erkek"});
-            this.Cinsiyet.Location = new System.Drawing.Point(705, 158);
-            this.Cinsiyet.Name = "Cinsiyet";
-            this.Cinsiyet.Size = new System.Drawing.Size(303, 28);
-            this.Cinsiyet.TabIndex = 40;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label3.Location = new System.Drawing.Point(524, 211);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 20);
-            this.label3.TabIndex = 39;
-            this.label3.Text = "Hastanın Doğum Tarihi:";
-            this.label3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
-            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
-            this.label3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
-            this.label3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
-            // 
-            // DateT
-            // 
-            this.DateT.CustomFormat = "dd-MM-yyyy";
-            this.DateT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.DateT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateT.Location = new System.Drawing.Point(705, 206);
-            this.DateT.Name = "DateT";
-            this.DateT.Size = new System.Drawing.Size(303, 26);
-            this.DateT.TabIndex = 38;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(524, 159);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 20);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Hastanın Cinsiyeti:";
-            this.label2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
-            this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
-            this.label2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.label1.Location = new System.Drawing.Point(460, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 24);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Hasta İşlemleri";
-            this.label1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
-            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
-            this.label1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label8.Location = new System.Drawing.Point(24, 105);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 20);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "Hastanın Adı:";
-            this.label8.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
-            this.label8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
-            this.label8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
-            this.label8.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
-            // 
-            // NameT
-            // 
-            this.NameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.NameT.ForeColor = System.Drawing.Color.Black;
-            this.NameT.Location = new System.Drawing.Point(208, 102);
-            this.NameT.Multiline = true;
-            this.NameT.Name = "NameT";
-            this.NameT.Size = new System.Drawing.Size(303, 27);
-            this.NameT.TabIndex = 34;
-            this.NameT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Location = new System.Drawing.Point(524, 105);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 20);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Hastanın Soyadı:";
-            this.label7.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
-            this.label7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
-            this.label7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
-            this.label7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
-            // 
-            // Surname
-            // 
-            this.Surname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Surname.ForeColor = System.Drawing.Color.Black;
-            this.Surname.Location = new System.Drawing.Point(705, 98);
-            this.Surname.Multiline = true;
-            this.Surname.Name = "Surname";
-            this.Surname.Size = new System.Drawing.Size(303, 27);
-            this.Surname.TabIndex = 32;
-            this.Surname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(24, 208);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(125, 20);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Hastanın TC No:";
-            this.label6.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
-            this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
-            this.label6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
-            this.label6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Location = new System.Drawing.Point(24, 156);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 20);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Hastanın Mail Adresi:";
-            this.label5.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
-            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
-            this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
-            this.label5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label4_MouseUp);
-            // 
-            // Submit
-            // 
-            this.Submit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
-            this.Submit.FlatAppearance.BorderSize = 0;
-            this.Submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Submit.ForeColor = System.Drawing.Color.White;
-            this.Submit.Location = new System.Drawing.Point(401, 284);
-            this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(213, 41);
-            this.Submit.TabIndex = 29;
-            this.Submit.Text = "Kaydet";
-            this.Submit.UseVisualStyleBackColor = false;
-            this.Submit.Click += new System.EventHandler(this.Submit_Click);
-            // 
-            // Email
-            // 
-            this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Email.ForeColor = System.Drawing.Color.Black;
-            this.Email.Location = new System.Drawing.Point(208, 156);
-            this.Email.Multiline = true;
-            this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(303, 27);
-            this.Email.TabIndex = 28;
-            this.Email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // DataView
             // 
             this.DataView.BackgroundColor = System.Drawing.Color.White;
             this.DataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DataView.Location = new System.Drawing.Point(0, 432);
+            this.DataView.Location = new System.Drawing.Point(0, 506);
             this.DataView.Name = "DataView";
-            this.DataView.Size = new System.Drawing.Size(1038, 256);
-            this.DataView.TabIndex = 0;
+            this.DataView.Size = new System.Drawing.Size(1038, 182);
+            this.DataView.TabIndex = 1;
             this.DataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataView_CellContentClick);
             // 
-            // PatientPage
+            // UnsavedPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -816,7 +690,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1366, 768);
-            this.Name = "PatientPage";
+            this.Name = "UnsavedPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
@@ -833,11 +707,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tumorBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Delete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Search)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Refresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataView)).EndInit();
             this.ResumeLayout(false);
 
@@ -876,26 +750,18 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Rapor;
         private System.Windows.Forms.DataGridView DataView;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox NameT;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Surname;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button Submit;
-        private System.Windows.Forms.TextBox Email;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox Search;
-        private System.Windows.Forms.Button Update;
-        private System.Windows.Forms.MaskedTextBox TC;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox Cinsiyet;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker DateT;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox Delete;
-        private System.Windows.Forms.PictureBox Refresh;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.MaskedTextBox TCSearch;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox Search;
+        private System.Windows.Forms.PictureBox tumorBox;
+        private System.Windows.Forms.PictureBox imgBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox TC;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox Result;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Submit;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }

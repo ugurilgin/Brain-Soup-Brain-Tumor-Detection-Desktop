@@ -94,6 +94,50 @@ namespace BrainSoup
             else
                 return false;
         }
+        public static void MRInfo()
+        {
+            MySqlConnection con;
+            MySqlCommand cmd;
+            MySqlDataReader dr;
+
+            cmd = new MySqlCommand();
+            con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
+            con.Open();
+            cmd.Connection = con;
+
+            cmd.CommandText = "SELECT imgloc,tumorloc,result from tumor WHERE TC = '00000000000' AND doctor=@doctor";
+            cmd.Parameters.AddWithValue("@doctor", UserInformation.UserKey);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                MRInformation.imgLoc = ServerInformation.myHostName+"static/"+ Convert.ToString(dr.GetString(0));
+                MRInformation.tumorLoc = ServerInformation.myHostName + "static/" + Convert.ToString(dr.GetString(1));
+                if (Convert.ToString(dr.GetString(2)) == "Pozitif")
+                { MRInformation.result = "Tümör Bulundu"; }
+                else
+                { MRInformation.result = "Tümör Bulunamadı"; }
+               
+
+
+            }
+
+        }
+        public static void UpdateMR(string query)
+        {
+
+            MySqlConnection con;
+            MySqlCommand cmd;
+            string userkey;
+            userkey = Encryptor.BuildSecureHexString(64);
+            cmd = new MySqlCommand();
+            con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = query;
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
         public static void UserInfo()
         {
             MySqlConnection con;
@@ -119,6 +163,24 @@ namespace BrainSoup
        
             }
          
+        }
+        public static void Select(string query, DataGridView dataGridView)
+        {
+            MySqlConnection con;
+            MySqlCommand cmd;
+            MySqlDataReader dr;
+            cmd = new MySqlCommand();
+            con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
+            con.Open();
+            cmd.Connection = con;
+
+            MySqlDataAdapter da = new MySqlDataAdapter(query, con);
+           
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView.DataSource = dt;
+            con.Close();
+
         }
         public static void Login(string email,string password,Form login,CheckBox Remember)
         {
@@ -171,7 +233,28 @@ namespace BrainSoup
                 Style.Error("Kullanıcı Adı veya Şifre Hatalı");
             }
         }
-        public static void UpdateUser(string name, string surname,  string password)
+        public static int isThere(string query)
+        {
+            MySqlConnection con;
+            MySqlCommand cmd;
+            MySqlDataReader dr;
+            cmd = new MySqlCommand();
+            con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
+            con.Open();
+            cmd = new MySqlCommand(query, con);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                con.Close();
+                return 1;
+            }
+            else
+            {
+                con.Close();
+                return 0;
+            }
+        }
+            public static void UpdateUser(string name, string surname,  string password)
         {
 
             MySqlConnection con;
@@ -229,6 +312,79 @@ namespace BrainSoup
 
                 }
             }
+        }
+        public static void UpdatePatients(string TC, string name, string surname, string cinsiyet, string birth, string email,string TCSearch)
+        {
+
+            MySqlConnection con;
+            MySqlCommand cmd;
+            string userkey;
+            userkey = Encryptor.BuildSecureHexString(64);
+            cmd = new MySqlCommand();
+            con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
+            con.Open();
+            cmd.Connection = con;
+
+            cmd.CommandText = "UPDATE patients  SET TC=@TC,name = @name ,surname = @surname ,email = @email,birthdate=@birtdate,cinsiyet=@cinsiyet WHERE TC=@TCsearch AND doctor=@doctor";
+            cmd.Parameters.AddWithValue("@TC", TC);
+            cmd.Parameters.AddWithValue("@TCsearch", TCSearch);
+
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@surname", surname);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@birthdate", birth);
+            cmd.Parameters.AddWithValue("@cinsiyet", cinsiyet);
+            cmd.Parameters.AddWithValue("@doctor", userkey.ToLower());
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public static void InsertPatients(string TC,string name,string surname,string cinsiyet,string birth,string email)
+        {
+
+            MySqlConnection con;
+            MySqlCommand cmd;
+            string userkey;
+            userkey = Encryptor.BuildSecureHexString(64);
+            cmd = new MySqlCommand();
+            con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
+            con.Open();
+            cmd.Connection = con;
+
+            cmd.CommandText = "INSERT INTO patients ( TC,name, surname,email, birthdate, date,doctor, ban, cinsiyet) VALUES (@TC,@name,@surname,@email,@birthdate,@date,@doctor,'0',@cinsiyet)";
+            cmd.Parameters.AddWithValue("@TC", TC);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@surname", surname);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@birthdate", birth);
+            cmd.Parameters.AddWithValue("@cinsiyet", cinsiyet);
+            cmd.Parameters.AddWithValue("@date", DateTime.Now.Date.ToString("dd/MM/yyyy"));
+            cmd.Parameters.AddWithValue("@doctor", userkey.ToLower());
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public static void DeletePatients(string TC)
+        {
+
+            MySqlConnection con;
+            MySqlCommand cmd;
+            string userkey;
+            userkey = Encryptor.BuildSecureHexString(64);
+            cmd = new MySqlCommand();
+            con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
+            con.Open();
+            cmd.Connection = con;
+
+            cmd.CommandText = "UPDATE patients SET ban='1' WHERE TC=@TC AND doctor=@doctor";
+            cmd.Parameters.AddWithValue("@TC", TC);
+            cmd.Parameters.AddWithValue("@doctor", userkey.ToLower());
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
         public static void Register(string name,string surname,string email, string password)
         {

@@ -78,6 +78,19 @@
     <Compile Include="Error.designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
+    <Compile Include="MRInformation.cs" />
+    <Compile Include="MRView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MRView.Designer.cs">
+      <DependentUpon>MRView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnsavedPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnsavedPage.Designer.cs">
+      <DependentUpon>UnsavedPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="PredictPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +136,12 @@
     <Compile Include="UserInformation.cs" />
     <EmbeddedResource Include="Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MRView.resx">
+      <DependentUpon>MRView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnsavedPage.resx">
+      <DependentUpon>UnsavedPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PredictPage.resx">
       <DependentUpon>PredictPage.cs</DependentUpon>

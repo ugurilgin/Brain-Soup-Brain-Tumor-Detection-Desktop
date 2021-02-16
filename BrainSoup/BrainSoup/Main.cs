@@ -348,7 +348,9 @@ namespace BrainSoup
 
         private void Hasta_Click(object sender, EventArgs e)
         {
-
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
         }
 
         private void profilToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -453,6 +455,17 @@ namespace BrainSoup
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Style.Maximize(this);
+        }
+
+        private void UnsavedMR_Click(object sender, EventArgs e)
+        {
+            if(Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='"+UserInformation.UserKey+"'")==1)
+            { 
+            UnsavedPage frm = new UnsavedPage();
+            frm.Show();
+            this.Close();
+            }
+            Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
         }
     }
 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Minimize = new System.Windows.Forms.PictureBox();
@@ -408,6 +408,7 @@
             this.UnsavedMR.TabIndex = 6;
             this.UnsavedMR.Text = "Kaydedilmemiş MR";
             this.UnsavedMR.UseVisualStyleBackColor = true;
+            this.UnsavedMR.Click += new System.EventHandler(this.UnsavedMR_Click);
             // 
             // pictureBox1
             // 
@@ -550,18 +551,18 @@
             // statePatient
             // 
             this.statePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            chartArea9.Name = "ChartArea1";
-            this.statePatient.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this.statePatient.Legends.Add(legend9);
+            chartArea1.Name = "ChartArea1";
+            this.statePatient.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.statePatient.Legends.Add(legend1);
             this.statePatient.Location = new System.Drawing.Point(91, 3);
             this.statePatient.Name = "statePatient";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series9.Legend = "Legend1";
-            series9.Name = "Toplam Hasta Yaş Dağılımı";
-            series9.YValuesPerPoint = 2;
-            this.statePatient.Series.Add(series9);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Toplam Hasta Yaş Dağılımı";
+            series1.YValuesPerPoint = 2;
+            this.statePatient.Series.Add(series1);
             this.statePatient.Size = new System.Drawing.Size(325, 249);
             this.statePatient.TabIndex = 0;
             this.statePatient.Text = "chart1";
@@ -619,17 +620,17 @@
             // stateCins
             // 
             this.stateCins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            chartArea10.Name = "ChartArea1";
-            this.stateCins.ChartAreas.Add(chartArea10);
-            legend10.Name = "Legend1";
-            this.stateCins.Legends.Add(legend10);
+            chartArea2.Name = "ChartArea1";
+            this.stateCins.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.stateCins.Legends.Add(legend2);
             this.stateCins.Location = new System.Drawing.Point(91, 6);
             this.stateCins.Name = "stateCins";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series10.Legend = "Legend1";
-            series10.Name = "Cinsiyet";
-            this.stateCins.Series.Add(series10);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Cinsiyet";
+            this.stateCins.Series.Add(series2);
             this.stateCins.Size = new System.Drawing.Size(325, 249);
             this.stateCins.TabIndex = 2;
             this.stateCins.Text = "chart5";

@@ -4,16 +4,15 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrainSoup
 {
-    public partial class PatientPage : Form
+    public partial class MRView : Form
     {
-        public PatientPage()
+        public MRView()
         {
             InitializeComponent();
             menuStrip1.Renderer = new ToolStripProfessionalRenderer(new MyColorTable());
@@ -77,9 +76,19 @@ namespace BrainSoup
         }
         //Resize Form Finish
 
-      
+        private void Hasta_MouseLeave(object sender, EventArgs e)
+        {
+            Hasta.BackColor = Color.FromArgb(0, 117, 213);
+            Hasta.ForeColor = Color.FromArgb(255, 255, 255);
+            
+        }
 
-       
+        private void Hasta_MouseEnter(object sender, EventArgs e)
+        {
+            
+            Hasta.ForeColor = Color.FromArgb(255, 255, 255);
+           
+        }
 
         private void MR_MouseEnter(object sender, EventArgs e)
         {
@@ -274,8 +283,6 @@ namespace BrainSoup
         {
             this.WindowState = Style.formState;
             oturumuKapatToolStripMenuItem.Text =UserInformation.UserName;
-            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE  doctor = '" + UserInformation.UserKey + "'";
-            Sql.Select(query, DataView);
         }
 
         private void title_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -321,168 +328,6 @@ namespace BrainSoup
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Style.Maximize(this);
-        }
-
-        private void Anamenu_Click(object sender, EventArgs e)
-        {
-            Main frm = new Main();
-            frm.Show();
-            this.Close();
-        }
-
-        private void Search_MouseEnter(object sender, EventArgs e)
-        {
-            Search.BackColor = Color.FromArgb(30, 137, 233);
-        }
-
-
-        private void Search_MouseLeave(object sender, EventArgs e)
-        {
-            Search.BackColor = Color.FromArgb(0, 117, 213);
-        }
-
-        private void Delete_MouseEnter(object sender, EventArgs e)
-        {
-            Delete.BackColor = Color.DarkRed;
-        }
-
-        private void Delete_MouseLeave(object sender, EventArgs e)
-        {
-            Delete.BackColor = Color.FromArgb(0, 117, 213);
-
-        }
-
-        private void label4_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Style.Maximize(this);
-        }
-
-        private void label4_MouseDown(object sender, MouseEventArgs e)
-        {
-            Draggable.mouseDown = true;
-            Draggable.lastLocation = e.Location;
-        }
-
-        private void label4_MouseMove(object sender, MouseEventArgs e)
-        {
-            Draggable.MouseMove(Draggable.lastLocation, Draggable.mouseDown, this, e);
-        }
-
-        private void label4_MouseUp(object sender, MouseEventArgs e)
-        {
-            Draggable.mouseDown = false;
-
-        }
-
-        private void Refresh_Click(object sender, EventArgs e)
-        {
-            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE doctor = '"+UserInformation.UserKey+"'";
-            Sql.Select(query, DataView);
-            NameT.Text = "";
-            Surname.Text = "";
-            TCSearch.Text = "";
-            TC.Text = "";
-            Email.Text = "";
-            Cinsiyet.Text = "";
-            Update.Visible = false;
-            Submit.Visible = true;
-            
-        }
-
-        private void TCSearch_TextChanged(object sender, EventArgs e)
-        {
-            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE TC LIKE '%" + TCSearch.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
-            Sql.Select(query, DataView);
-        }
-
-        private void Search_Click(object sender, EventArgs e)
-        {
-            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE TC LIKE '%" + TCSearch.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
-            Sql.Select(query, DataView);
-        }
-
-        private void Delete_Click(object sender, EventArgs e)
-        {
-            try { Sql.DeletePatients(TCSearch.Text); }
-            catch { Style.Error("Kayıt Silinemedi"); }
-           
-        }
-
-        private void Update_Click(object sender, EventArgs e)
-        {
-            if (TC.Text == "" || NameT.Text == "" | Surname.Text == "" || Cinsiyet.Text == "" || Email.Text == ""|| TCSearch.Text=="")
-            {
-                Style.Error("Tüm Alanlar Doldurulmalıdır.Arama Bilgisini Giriniz.");
-               
-            }
-            else
-            {
-                if (MailSender.GetValidEmail(Email.Text) == "valid")
-                {
-                    Sql.UpdatePatients(TC.Text, NameT.Text, Surname.Text, Cinsiyet.Text, DateT.Value.Date.ToString(), Email.Text, TCSearch.Text);
-                Refresh_Click(sender, e);
-                    Style.Message("Güncelleme Başarılı");
-                }
-                else
-                {
-                Style.Error("Lütfen Geçerli Mail Adresi Giriniz.");
-
-                }
-        }
-        }
-
-        private void Submit_Click(object sender, EventArgs e)
-        {
-            if(TC.Text==""|| NameT.Text=="" | Surname.Text==""|| Cinsiyet.Text==""|| Email.Text=="")
-            {
-                Style.Error("Tüm Alanlar Doldurulmalıdır");
-            }
-            else
-            {
-                string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE TC LIKE '%" + TC.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
-               
-                if (Sql.isThere(query)==0)
-                {
-                    if (MailSender.GetValidEmail(Email.Text) == "valid")
-                    {
-                        Sql.InsertPatients(TC.Text, NameT.Text, Surname.Text, Cinsiyet.Text, DateT.Value.Date.ToString(), Email.Text);
-                        Refresh_Click(sender, e);
-                        Style.Message("Kayıt Başarılı");
-                    }
-                    else
-                    {
-                        Style.Error("Lütfen Geçerli Mail Adresi Giriniz.");
-
-                    }
-                }
-                else
-                    Style.Error("Bu Hasta Zaten Kayıtlı.");
-            }
-        }
-
-        private void DataView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Update.Visible = true;
-            Submit.Visible = false;
-            TC.Text=DataView.CurrentRow.Cells[1].Value.ToString();
-            TCSearch.Text = DataView.CurrentRow.Cells[1].Value.ToString();
-            NameT.Text= DataView.CurrentRow.Cells[2].Value.ToString();
-            Surname.Text = DataView.CurrentRow.Cells[3].Value.ToString();
-            Email.Text = DataView.CurrentRow.Cells[4].Value.ToString();
-            DateT.Value = Convert.ToDateTime(DataView.CurrentRow.Cells[5].Value.ToString());
-            Cinsiyet.Text =  DataView.CurrentRow.Cells[7].Value.ToString();
-        }
-
-        private void Anamenu_MouseEnter(object sender, EventArgs e)
-        {
-
-            Anamenu.ForeColor = Color.FromArgb(255, 255, 255);
-        }
-
-        private void Anamenu_MouseLeave(object sender, EventArgs e)
-        {
-            Anamenu.BackColor = Color.FromArgb(0, 117, 213);
-            Anamenu.ForeColor = Color.FromArgb(255, 255, 255);
         }
     }
 }
