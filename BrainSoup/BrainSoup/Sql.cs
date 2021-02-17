@@ -94,7 +94,7 @@ namespace BrainSoup
             else
                 return false;
         }
-        public static void MRInfo()
+        public static void MRInfo(string TC)
         {
             MySqlConnection con;
             MySqlCommand cmd;
@@ -105,14 +105,16 @@ namespace BrainSoup
             con.Open();
             cmd.Connection = con;
 
-            cmd.CommandText = "SELECT imgloc,tumorloc,result from tumor WHERE TC = '00000000000' AND doctor=@doctor";
+            cmd.CommandText = "SELECT date,imgloc,tumorloc,result from tumor WHERE TC=@TC AND doctor=@doctor";
+            cmd.Parameters.AddWithValue("@TC", TC);
             cmd.Parameters.AddWithValue("@doctor", UserInformation.UserKey);
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                MRInformation.imgLoc = ServerInformation.myHostName+"static/"+ Convert.ToString(dr.GetString(0));
-                MRInformation.tumorLoc = ServerInformation.myHostName + "static/" + Convert.ToString(dr.GetString(1));
-                if (Convert.ToString(dr.GetString(2)) == "Pozitif")
+                MRInformation.date =  Convert.ToString(dr.GetString(1));
+                MRInformation.imgLoc = ServerInformation.myHostName+"static/"+ Convert.ToString(dr.GetString(1));
+                MRInformation.tumorLoc = ServerInformation.myHostName + "static/" + Convert.ToString(dr.GetString(2));
+                if (Convert.ToString(dr.GetString(3)) == "Pozitif")
                 { MRInformation.result = "Tümör Bulundu"; }
                 else
                 { MRInformation.result = "Tümör Bulunamadı"; }
@@ -137,6 +139,33 @@ namespace BrainSoup
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+        public static void PatientInfo(string TC)
+        {
+            MySqlConnection con;
+            MySqlCommand cmd;
+            MySqlDataReader dr;
+
+            cmd = new MySqlCommand();
+            con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
+            con.Open();
+            cmd.Connection = con;
+
+            cmd.CommandText = "SELECT * from patients WHERE TC = @TC AND doctor=@doctor";
+            cmd.Parameters.AddWithValue("@TC",  TC);
+            cmd.Parameters.AddWithValue("@doctor", UserInformation.UserKey);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                PatientsInformation.TC = Convert.ToString(dr.GetString(1));
+                PatientsInformation.name = Convert.ToString(dr.GetString(2));
+                PatientsInformation.surname = Convert.ToString(dr.GetString(3));
+                PatientsInformation.email = Convert.ToString(dr.GetString(4));
+                PatientsInformation.birthdate = Convert.ToString(dr.GetString(5));
+                PatientsInformation.cinsiyet = Convert.ToString(dr.GetString(9));
+
+            }
+
         }
         public static void UserInfo()
         {
@@ -313,6 +342,7 @@ namespace BrainSoup
                 }
             }
         }
+       
         public static void UpdatePatients(string TC, string name, string surname, string cinsiyet, string birth, string email,string TCSearch)
         {
 

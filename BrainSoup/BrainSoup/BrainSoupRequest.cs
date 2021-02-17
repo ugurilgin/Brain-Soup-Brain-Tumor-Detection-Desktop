@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BrainSoup
@@ -19,16 +21,58 @@ namespace BrainSoup
     }
     class BrainSoupRequest
     {
-        
-        
-        public  string LoginPostRequest(string url,string email,string password)
+        public string SendImage(string url, string image)
+        {
+
+            try
+            {
+
+                string path = image;
+                FileInfo fi = new FileInfo(path);
+                string fileName = fi.Name;
+                byte[] fileContents = File.ReadAllBytes(fi.FullName);
+
+                Uri webService = new Uri(url);
+                HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, webService);
+                requestMessage.Headers.ExpectContinue = false;
+
+                MultipartFormDataContent multiPartContent = new MultipartFormDataContent("----MyGreatBoundary");
+                ByteArrayContent byteArrayContent = new ByteArrayContent(fileContents);
+                byteArrayContent.Headers.Add("Content-Type", "multipart/form-data");
+                multiPartContent.Add(byteArrayContent, "file", fileName);
+                requestMessage.Content = multiPartContent;
+
+                HttpClient httpClient = new HttpClient();
+                Task<HttpResponseMessage> httpRequest = httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseContentRead, CancellationToken.None);
+                HttpResponseMessage httpResponse = httpRequest.Result;
+
+                HttpStatusCode statusCode = httpResponse.StatusCode;
+                HttpContent responseContent = httpResponse.Content;
+                string json = null;
+
+                if (responseContent != null)
+                {
+                    Task<String> stringContentsTask = responseContent.ReadAsStringAsync();
+                    json = stringContentsTask.Result;
+                }
+
+                return json;
+            }
+            catch
+            {
+                Style.Error("Resim Yüklenemedi");
+                return "Hata";
+            }
+        }
+
+        public  string Log(string url,string email,string image)
         {
 
             try
             {
                
                 ASCIIEncoding encoding = new ASCIIEncoding();
-                string text = "email=" + email + "&password=" + password;
+                string text = "email=" + email + "&image=" + image;
                 byte[] data = encoding.GetBytes(text);
                 WebRequest request = WebRequest.Create(url);
                 request.Credentials = CredentialCache.DefaultCredentials;
@@ -51,6 +95,7 @@ namespace BrainSoup
             }
             catch
             {
+                Style.Error("Resim Yüklenemedi");
                 return "Hata";
             }
         }

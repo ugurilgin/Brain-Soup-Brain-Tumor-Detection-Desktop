@@ -10,14 +10,15 @@ using System.Windows.Forms;
 
 namespace BrainSoup
 {
-    public partial class MRView : Form
+    public partial class MRViewPage : Form
     {
-        public MRView()
+        public MRViewPage()
         {
             InitializeComponent();
             menuStrip1.Renderer = new ToolStripProfessionalRenderer(new MyColorTable());
         }
-
+        string id;
+       
         //Resize Form
         protected override void WndProc(ref Message m)
         {
@@ -90,18 +91,7 @@ namespace BrainSoup
            
         }
 
-        private void MR_MouseEnter(object sender, EventArgs e)
-        {
-            MR.ForeColor = Color.FromArgb(255, 255, 255);
-
-        }
-
-        private void MR_MouseLeave(object sender, EventArgs e)
-        {
-            MR.BackColor = Color.FromArgb(0, 117, 213);
-            MR.ForeColor = Color.FromArgb(255, 255, 255);
-            
-        }
+       
 
         private void Rapor_MouseEnter(object sender, EventArgs e)
         {
@@ -283,6 +273,11 @@ namespace BrainSoup
         {
             this.WindowState = Style.formState;
             oturumuKapatToolStripMenuItem.Text =UserInformation.UserName;
+            string query = "SELECT id AS 'ID',TC AS 'TC',imgloc AS 'MR',tumorloc AS 'Tumor MR',date AS 'Kayıt Tarihi',result AS 'MR Sonucu',cinsiyet AS 'Cinsiyeti',birthdate AS 'Doğum Tarihi' from tumor WHERE ban='0' AND doctor = '" + UserInformation.UserKey + "'";
+            Sql.Select(query, DataView);
+            imgBox.Image = Image.FromFile("img/img.jpg");
+            tumorBox.Image = Image.FromFile("img/tumor.jpg");
+
         }
 
         private void title_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -328,6 +323,161 @@ namespace BrainSoup
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Style.Maximize(this);
+        }
+
+        private void Search_MouseEnter(object sender, EventArgs e)
+        {
+            Search.BackColor = Color.FromArgb(30, 137, 233);
+        }
+
+
+        private void Search_MouseLeave(object sender, EventArgs e)
+        {
+            Search.BackColor = Color.FromArgb(0, 117, 213);
+        }
+
+        private void label4_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Style.Maximize(this);
+        }
+
+        private void label4_MouseDown(object sender, MouseEventArgs e)
+        {
+            Draggable.mouseDown = true;
+            Draggable.lastLocation = e.Location;
+        }
+
+        private void label4_MouseMove(object sender, MouseEventArgs e)
+        {
+            Draggable.MouseMove(Draggable.lastLocation, Draggable.mouseDown, this, e);
+        }
+
+        private void label4_MouseUp(object sender, MouseEventArgs e)
+        {
+            Draggable.mouseDown = false;
+
+        }
+
+        private void DataView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id = DataView.CurrentRow.Cells[0].Value.ToString();
+            TC.Text = DataView.CurrentRow.Cells[1].Value.ToString();
+            Result.Text = DataView.CurrentRow.Cells[5].Value.ToString();
+           
+            Sql.PatientInfo(DataView.CurrentRow.Cells[1].Value.ToString());
+            Cinsiyeti.Text = PatientsInformation.cinsiyet;
+            NameT.Text = PatientsInformation.name + " " + PatientsInformation.surname;
+            MRInformation.date= DataView.CurrentRow.Cells[4].Value.ToString();
+            MRInformation.imgLoc=ServerInformation.myHostName+"static/"+ DataView.CurrentRow.Cells[2].Value.ToString();
+           
+            MRInformation.tumorLoc= ServerInformation.myHostName + "static/" + DataView.CurrentRow.Cells[3].Value.ToString();
+            MRInformation.result= DataView.CurrentRow.Cells[5].Value.ToString();
+            imgBox.ImageLocation = MRInformation.imgLoc;
+            tumorBox.ImageLocation = MRInformation.tumorLoc;
+
+        }
+
+        private void TCSearch_TextChanged(object sender, EventArgs e)
+        {
+            string query = "SELECT id AS 'ID',TC AS 'TC',imgloc AS 'MR',tumorloc AS 'Tumor MR',date AS 'Kayıt Tarihi',result AS 'MR Sonucu',cinsiyet AS 'Cinsiyeti',birthdate AS 'Doğum Tarihi' from tumor WHERE TC LIKE '%" + TCSearch.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
+            
+            Sql.Select(query, DataView);
+        }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT id AS 'ID',TC AS 'TC',imgloc AS 'MR',tumorloc AS 'Tumor MR',date AS 'Kayıt Tarihi',result AS 'MR Sonucu',cinsiyet AS 'Cinsiyeti',birthdate AS 'Doğum Tarihi' from tumor WHERE ban='0' AND TC LIKE '%" + TCSearch.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
+            Sql.Select(query, DataView);
+        }
+
+        private void Submit_Click(object sender, EventArgs e)
+        {
+            try { 
+            string rslt;
+            if (Result.Text == "Tümör Bulundu")
+                rslt = "Pozitif";
+            else
+                rslt = "Negatif";
+            Sql.UpdateMR("UPDATE tumor SET   id='" + id + "' AND result='" + rslt+"' WHERE ban='0' AND TC='"+TC.Text+"' AND doctor='"+UserInformation.UserKey+"' ");
+                Style.Message("MR Başarıyla Kaydedildi");
+                TC.Text = "";
+                Result.Text = "";
+            }
+            catch
+            {
+                Style.Error("MR Kaydedilemedi");
+            }
+         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void Print_MouseEnter(object sender, EventArgs e)
+        {
+
+            Print.BackColor = Color.FromArgb(30, 137, 233);
+        }
+
+
+        private void Print_MouseLeave(object sender, EventArgs e)
+        {
+            Print.BackColor = Color.FromArgb(0, 117, 213);
+
+        }
+
+        private void Delete_MouseEnter(object sender, EventArgs e)
+        {
+            Delete.BackColor = Color.DarkRed;
+        }
+
+        private void Delete_MouseLeave(object sender, EventArgs e)
+        {
+            Delete.BackColor = Color.FromArgb(0, 117, 213);
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT id AS 'ID',TC AS 'TC',imgloc AS 'MR',tumorloc AS 'Tumor MR',date AS 'Kayıt Tarihi',result AS 'MR Sonucu',cinsiyet AS 'Cinsiyeti',birthdate AS 'Doğum Tarihi' from tumor WHERE doctor = '" + UserInformation.UserKey + "'";
+            Sql.Select(query, DataView);
+            NameT.Text = "";
+            Result.Text = "";
+            TCSearch.Text = "";
+            TC.Text = "";
+
+            imgBox.Image = Image.FromFile("img/img.jpg");
+            tumorBox.Image = Image.FromFile("img/tumor.jpg");
+            Cinsiyeti.Text = "";
+           
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string rslt;
+                if (Result.Text == "Tümör Bulundu")
+                    rslt = "Pozitif";
+                else
+                    rslt = "Negatif";
+                Sql.UpdateMR("UPDATE tumor SET  ban='1' WHERE id='"+id+"' AND TC='" + TC.Text + "' AND doctor='" + UserInformation.UserKey + "' ");
+                Style.Message("MR Başarıyla Kaydedildi");
+                TC.Text = "";
+                Result.Text = "";
+            }
+            catch
+            {
+                Style.Error("MR Kaydedilemedi");
+            }
+        }
+
+        private void Print_Click(object sender, EventArgs e)
+        {
+            Report frm = new Report();
+            frm.Show();
         }
     }
 }

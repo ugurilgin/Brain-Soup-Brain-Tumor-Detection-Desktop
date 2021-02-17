@@ -467,6 +467,7 @@
             this.MR.TabIndex = 3;
             this.MR.Text = "MR Görüntüleri\r\n";
             this.MR.UseVisualStyleBackColor = true;
+            this.MR.Click += new System.EventHandler(this.MR_Click);
             this.MR.MouseEnter += new System.EventHandler(this.MR_MouseEnter);
             this.MR.MouseLeave += new System.EventHandler(this.MR_MouseLeave);
             // 

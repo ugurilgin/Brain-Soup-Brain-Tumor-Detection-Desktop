@@ -13,8 +13,8 @@ namespace BrainSoup
     class MailSender
     {
 
-        public static string mailUser = "********************";
-        public static string mailPasword = "********************";
+        public static string mailUser = "*****************************";
+        public static string mailPasword = ""*****************************";";
         public static string  GetValidEmail(string email)
         {
             try

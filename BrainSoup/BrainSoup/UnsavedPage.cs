@@ -286,7 +286,7 @@ namespace BrainSoup
             oturumuKapatToolStripMenuItem.Text =UserInformation.UserName;
             string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE  doctor = '" + UserInformation.UserKey + "'";
             Sql.Select(query, DataView);
-            Sql.MRInfo();
+            Sql.MRInfo("00000000000");
             imgBox.ImageLocation=MRInformation.imgLoc;
             tumorBox.ImageLocation=MRInformation.tumorLoc;
             Result.Text = MRInformation.result;

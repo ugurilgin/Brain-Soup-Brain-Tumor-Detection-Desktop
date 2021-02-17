@@ -30,4 +30,5 @@ G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSo
 G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.PatientPage.resources
 G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.PredictPage.resources
 G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.UnsavedPage.resources
-G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.MRView.resources
+G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.MRViewPage.resources
+G:\BrainSoup Brain Tumor Detection Desktop\BrainSoup\BrainSoup\obj\Debug\BrainSoup.Report.resources

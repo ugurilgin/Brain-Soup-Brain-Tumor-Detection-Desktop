@@ -274,7 +274,7 @@ namespace BrainSoup
         {
             this.WindowState = Style.formState;
             oturumuKapatToolStripMenuItem.Text =UserInformation.UserName;
-            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE  doctor = '" + UserInformation.UserKey + "'";
+            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE ban='0' AND doctor = '" + UserInformation.UserKey + "'";
             Sql.Select(query, DataView);
         }
 
@@ -376,7 +376,7 @@ namespace BrainSoup
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE doctor = '"+UserInformation.UserKey+"'";
+            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE ban='0' AND doctor = '" + UserInformation.UserKey+"'";
             Sql.Select(query, DataView);
             NameT.Text = "";
             Surname.Text = "";
@@ -391,13 +391,13 @@ namespace BrainSoup
 
         private void TCSearch_TextChanged(object sender, EventArgs e)
         {
-            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE TC LIKE '%" + TCSearch.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
+            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE ban='0' AND TC LIKE '%" + TCSearch.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
             Sql.Select(query, DataView);
         }
 
         private void Search_Click(object sender, EventArgs e)
         {
-            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE TC LIKE '%" + TCSearch.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
+            string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE ban='0' AND TC LIKE '%" + TCSearch.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
             Sql.Select(query, DataView);
         }
 
@@ -439,7 +439,7 @@ namespace BrainSoup
             }
             else
             {
-                string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE TC LIKE '%" + TC.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
+                string query = "SELECT id AS 'ID',TC AS 'TC',name AS 'İsim',surname AS 'Soyisim',email AS 'E-Mail',birthdate AS 'Doğum Tarihi',date AS 'Kayıt Tarihi',cinsiyet AS 'Cinsiyeti' from patients WHERE ban='0' AND TC LIKE '%" + TC.Text + "%' AND doctor = '" + UserInformation.UserKey + "'";
                
                 if (Sql.isThere(query)==0)
                 {

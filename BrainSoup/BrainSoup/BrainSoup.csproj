@@ -72,18 +72,25 @@
   <ItemGroup>
     <Compile Include="BrainSoupRequest.cs" />
     <Compile Include="Encryptor.cs" />
+    <Compile Include="Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report.designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Error.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Error.designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatientsInformation.cs" />
     <Compile Include="MRInformation.cs" />
-    <Compile Include="MRView.cs">
+    <Compile Include="MRViewPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MRView.Designer.cs">
-      <DependentUpon>MRView.cs</DependentUpon>
+    <Compile Include="MRViewPage.Designer.cs">
+      <DependentUpon>MRViewPage.cs</DependentUpon>
     </Compile>
     <Compile Include="UnsavedPage.cs">
       <SubType>Form</SubType>
@@ -134,11 +141,14 @@
     <Compile Include="Sql.cs" />
     <Compile Include="Style.cs" />
     <Compile Include="UserInformation.cs" />
+    <EmbeddedResource Include="Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MRView.resx">
-      <DependentUpon>MRView.cs</DependentUpon>
+    <EmbeddedResource Include="MRViewPage.resx">
+      <DependentUpon>MRViewPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UnsavedPage.resx">
       <DependentUpon>UnsavedPage.cs</DependentUpon>

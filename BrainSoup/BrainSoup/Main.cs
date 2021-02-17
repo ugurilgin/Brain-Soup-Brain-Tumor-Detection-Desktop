@@ -465,7 +465,17 @@ namespace BrainSoup
             frm.Show();
             this.Close();
             }
+            else
+            { 
             Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
+            }
+        }
+
+        private void MR_Click(object sender, EventArgs e)
+        {
+            MRViewPage frm = new MRViewPage();
+            frm.Show();
+            this.Close();
         }
     }
 }
