@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Minimize = new System.Windows.Forms.PictureBox();
@@ -228,6 +228,7 @@
             this.hastaEkleToolStripMenuItem.Name = "hastaEkleToolStripMenuItem";
             this.hastaEkleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.hastaEkleToolStripMenuItem.Text = "Hasta Ekle";
+            this.hastaEkleToolStripMenuItem.Click += new System.EventHandler(this.hastaEkleToolStripMenuItem_Click);
             // 
             // hastalarıGörüntüleToolStripMenuItem
             // 
@@ -237,6 +238,7 @@
             this.hastalarıGörüntüleToolStripMenuItem.Name = "hastalarıGörüntüleToolStripMenuItem";
             this.hastalarıGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.hastalarıGörüntüleToolStripMenuItem.Text = "Hastaları Görüntüle";
+            this.hastalarıGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.hastalarıGörüntüleToolStripMenuItem_Click);
             // 
             // hastalarıGüncelleToolStripMenuItem
             // 
@@ -246,6 +248,7 @@
             this.hastalarıGüncelleToolStripMenuItem.Name = "hastalarıGüncelleToolStripMenuItem";
             this.hastalarıGüncelleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.hastalarıGüncelleToolStripMenuItem.Text = "Hastaları Güncelle";
+            this.hastalarıGüncelleToolStripMenuItem.Click += new System.EventHandler(this.hastalarıGüncelleToolStripMenuItem_Click);
             // 
             // hastaSilToolStripMenuItem
             // 
@@ -255,6 +258,7 @@
             this.hastaSilToolStripMenuItem.Name = "hastaSilToolStripMenuItem";
             this.hastaSilToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.hastaSilToolStripMenuItem.Text = "Hasta Sil";
+            this.hastaSilToolStripMenuItem.Click += new System.EventHandler(this.hastaSilToolStripMenuItem_Click);
             // 
             // mRToolStripMenuItem
             // 
@@ -276,6 +280,7 @@
             this.mRİnceleToolStripMenuItem.Name = "mRİnceleToolStripMenuItem";
             this.mRİnceleToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.mRİnceleToolStripMenuItem.Text = "MR İncele";
+            this.mRİnceleToolStripMenuItem.Click += new System.EventHandler(this.mRİnceleToolStripMenuItem_Click);
             // 
             // kaydedilmemişMRToolStripMenuItem
             // 
@@ -285,6 +290,7 @@
             this.kaydedilmemişMRToolStripMenuItem.Name = "kaydedilmemişMRToolStripMenuItem";
             this.kaydedilmemişMRToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.kaydedilmemişMRToolStripMenuItem.Text = "Kaydedilmemiş MR";
+            this.kaydedilmemişMRToolStripMenuItem.Click += new System.EventHandler(this.kaydedilmemişMRToolStripMenuItem_Click);
             // 
             // mRSonuçlarınıGörüntüleToolStripMenuItem
             // 
@@ -294,6 +300,7 @@
             this.mRSonuçlarınıGörüntüleToolStripMenuItem.Name = "mRSonuçlarınıGörüntüleToolStripMenuItem";
             this.mRSonuçlarınıGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.mRSonuçlarınıGörüntüleToolStripMenuItem.Text = "MR Sonuçlarını Görüntüle";
+            this.mRSonuçlarınıGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.mRSonuçlarınıGörüntüleToolStripMenuItem_Click);
             // 
             // oturumuKapatToolStripMenuItem
             // 
@@ -552,18 +559,18 @@
             // statePatient
             // 
             this.statePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            chartArea1.Name = "ChartArea1";
-            this.statePatient.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.statePatient.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.statePatient.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.statePatient.Legends.Add(legend3);
             this.statePatient.Location = new System.Drawing.Point(91, 3);
             this.statePatient.Name = "statePatient";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Toplam Hasta Yaş Dağılımı";
-            series1.YValuesPerPoint = 2;
-            this.statePatient.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Toplam Hasta Yaş Dağılımı";
+            series3.YValuesPerPoint = 2;
+            this.statePatient.Series.Add(series3);
             this.statePatient.Size = new System.Drawing.Size(325, 249);
             this.statePatient.TabIndex = 0;
             this.statePatient.Text = "chart1";
@@ -621,17 +628,17 @@
             // stateCins
             // 
             this.stateCins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            chartArea2.Name = "ChartArea1";
-            this.stateCins.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.stateCins.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.stateCins.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.stateCins.Legends.Add(legend4);
             this.stateCins.Location = new System.Drawing.Point(91, 6);
             this.stateCins.Name = "stateCins";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Cinsiyet";
-            this.stateCins.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Cinsiyet";
+            this.stateCins.Series.Add(series4);
             this.stateCins.Size = new System.Drawing.Size(325, 249);
             this.stateCins.TabIndex = 2;
             this.stateCins.Text = "chart5";
@@ -907,11 +914,12 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1366, 768);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
+            this.Text = "Anamenü";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

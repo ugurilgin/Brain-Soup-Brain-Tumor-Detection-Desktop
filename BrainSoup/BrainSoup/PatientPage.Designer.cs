@@ -160,9 +160,9 @@
             this.title.ForeColor = System.Drawing.Color.White;
             this.title.Location = new System.Drawing.Point(519, 9);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(312, 13);
+            this.title.Size = new System.Drawing.Size(335, 13);
             this.title.TabIndex = 2;
-            this.title.Text = "BrainSoup Beyin Tümörü Tespiti Masaüstü Uygulaması-Anamenü";
+            this.title.Text = "BrainSoup Beyin Tümörü Tespiti Masaüstü Uygulaması-Hasta İşlemleri";
             this.title.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.title_MouseDoubleClick);
             this.title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.title_MouseDown);
             this.title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.title_MouseMove);
@@ -260,6 +260,7 @@
             this.mRİnceleToolStripMenuItem.Name = "mRİnceleToolStripMenuItem";
             this.mRİnceleToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.mRİnceleToolStripMenuItem.Text = "MR İncele";
+            this.mRİnceleToolStripMenuItem.Click += new System.EventHandler(this.mRİnceleToolStripMenuItem_Click);
             // 
             // kaydedilmemişMRToolStripMenuItem
             // 
@@ -269,6 +270,7 @@
             this.kaydedilmemişMRToolStripMenuItem.Name = "kaydedilmemişMRToolStripMenuItem";
             this.kaydedilmemişMRToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.kaydedilmemişMRToolStripMenuItem.Text = "Kaydedilmemiş MR";
+            this.kaydedilmemişMRToolStripMenuItem.Click += new System.EventHandler(this.kaydedilmemişMRToolStripMenuItem_Click);
             // 
             // mRSonuçlarınıGörüntüleToolStripMenuItem
             // 
@@ -278,6 +280,7 @@
             this.mRSonuçlarınıGörüntüleToolStripMenuItem.Name = "mRSonuçlarınıGörüntüleToolStripMenuItem";
             this.mRSonuçlarınıGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.mRSonuçlarınıGörüntüleToolStripMenuItem.Text = "MR Sonuçlarını Görüntüle";
+            this.mRSonuçlarınıGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.mRSonuçlarınıGörüntüleToolStripMenuItem_Click);
             // 
             // oturumuKapatToolStripMenuItem
             // 
@@ -378,6 +381,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Profil";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -391,6 +395,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Kaydedilmemiş MR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Rapor
             // 
@@ -404,6 +409,7 @@
             this.Rapor.TabIndex = 8;
             this.Rapor.Text = "MR İncele";
             this.Rapor.UseVisualStyleBackColor = true;
+            this.Rapor.Click += new System.EventHandler(this.Rapor_Click);
             // 
             // pictureBox1
             // 
@@ -448,6 +454,7 @@
             this.MR.TabIndex = 3;
             this.MR.Text = "MR Görüntüleri\r\n";
             this.MR.UseVisualStyleBackColor = true;
+            this.MR.Click += new System.EventHandler(this.MR_Click);
             this.MR.MouseEnter += new System.EventHandler(this.MR_MouseEnter);
             this.MR.MouseLeave += new System.EventHandler(this.MR_MouseLeave);
             // 
@@ -518,7 +525,6 @@
             this.TCSearch.Name = "TCSearch";
             this.TCSearch.Size = new System.Drawing.Size(151, 26);
             this.TCSearch.TabIndex = 49;
-            this.TCSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TCSearch.ValidatingType = typeof(int);
             this.TCSearch.TextChanged += new System.EventHandler(this.TCSearch_TextChanged);
             // 
@@ -603,7 +609,6 @@
             this.TC.Name = "TC";
             this.TC.Size = new System.Drawing.Size(303, 26);
             this.TC.TabIndex = 43;
-            this.TC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TC.ValidatingType = typeof(int);
             // 
             // Cinsiyet
@@ -637,7 +642,7 @@
             // 
             // DateT
             // 
-            this.DateT.CustomFormat = "dd-MM-yyyy";
+            this.DateT.CustomFormat = "yyyy-MM-dd";
             this.DateT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.DateT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateT.Location = new System.Drawing.Point(705, 206);
@@ -703,7 +708,6 @@
             this.NameT.Name = "NameT";
             this.NameT.Size = new System.Drawing.Size(303, 27);
             this.NameT.TabIndex = 34;
-            this.NameT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -731,7 +735,6 @@
             this.Surname.Name = "Surname";
             this.Surname.Size = new System.Drawing.Size(303, 27);
             this.Surname.TabIndex = 32;
-            this.Surname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -791,7 +794,6 @@
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(303, 27);
             this.Email.TabIndex = 28;
-            this.Email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DataView
             // 
@@ -814,11 +816,12 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1366, 768);
             this.Name = "PatientPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
+            this.Text = "Hasta İşlemleri";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

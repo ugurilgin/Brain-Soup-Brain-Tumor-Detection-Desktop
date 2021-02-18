@@ -322,7 +322,9 @@ namespace BrainSoup
 
         private void Hasta_Click(object sender, EventArgs e)
         {
-
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
         }
 
         private void profilToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -399,8 +401,10 @@ namespace BrainSoup
                 rslt = "Negatif";
             Sql.UpdateMR("UPDATE tumor SET TC='"+TC.Text+"', result='"+rslt+"',cinsiyet='"+cinsiyet+"',birthdate='"+date+"',ban='0' WHERE TC='00000000000' AND doctor='"+UserInformation.UserKey+"' ");
                 Style.Message("MR Başarıyla Kaydedildi");
-                TC.Text = "";
-                Result.Text = "";
+                MRViewPage frm = new MRViewPage();
+                frm.Show();
+                this.Close();
+
             }
             catch
             {
@@ -411,6 +415,76 @@ namespace BrainSoup
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastaEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastalarıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastalarıGüncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastaSilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void MR_Click(object sender, EventArgs e)
+        {
+            MRViewPage frm = new MRViewPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void mRSonuçlarınıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MRViewPage frm = new MRViewPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void mRİnceleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PredictPage frm = new PredictPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void Rapor_Click(object sender, EventArgs e)
+        {
+            PredictPage frm = new PredictPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProfilePage frm = new ProfilePage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void Anamenu_Click(object sender, EventArgs e)
+        {
+            Main frm = new Main();
             frm.Show();
             this.Close();
         }

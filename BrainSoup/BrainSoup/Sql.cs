@@ -26,8 +26,8 @@ namespace BrainSoup
     {
         public static string Count(string query)
         {
-
-         
+            try
+            { 
             string count = "";
             MySqlConnection con;
             MySqlCommand cmd;
@@ -40,17 +40,23 @@ namespace BrainSoup
             while (dr.Read())
             {
                count= dr[0].ToString();
-                
-
 
             }
 
             dr.Close();
             con.Close();
             return count;
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+                return "0";
+            }
+
         }
         public static void Mail(string email)
         {
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
             MySqlDataReader dr;
@@ -70,9 +76,16 @@ namespace BrainSoup
             }
             string message = "Merhabalar,\n  Şifrenizi Yenilemek İçin Aşağıdaki Bağlantıyı Kullanabilirsiniz\n" + ServerInformation.myHostName + "resetpass/" + userkey + "\nİyi Günler Dileriz";
             MailSender.Send(email, "Brain Soup Şifre Yenileme İsteği", message);
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
+
         }
         public static bool EmailControl(string email)
         {
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
             MySqlDataReader dr;
@@ -86,16 +99,25 @@ namespace BrainSoup
             cmd.Parameters.AddWithValue("@email", email);
            
             dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                return true;
+                if (dr.Read())
+                {
+                    return true;
 
+                }
+                else
+                { return false; }
             }
-            else
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
                 return false;
+            }
+
+
         }
         public static void MRInfo(string TC)
         {
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
             MySqlDataReader dr;
@@ -122,15 +144,19 @@ namespace BrainSoup
 
 
             }
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
+
 
         }
         public static void UpdateMR(string query)
         {
-
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
-            string userkey;
-            userkey = Encryptor.BuildSecureHexString(64);
             cmd = new MySqlCommand();
             con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
             con.Open();
@@ -139,9 +165,16 @@ namespace BrainSoup
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             con.Close();
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
+
         }
         public static void PatientInfo(string TC)
         {
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
             MySqlDataReader dr;
@@ -165,10 +198,17 @@ namespace BrainSoup
                 PatientsInformation.cinsiyet = Convert.ToString(dr.GetString(9));
 
             }
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
+
 
         }
         public static void UserInfo()
         {
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
             MySqlDataReader dr;
@@ -191,10 +231,18 @@ namespace BrainSoup
                
        
             }
-         
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
+
+
         }
         public static void Select(string query, DataGridView dataGridView)
         {
+            try { 
+
             MySqlConnection con;
             MySqlCommand cmd;
             MySqlDataReader dr;
@@ -209,6 +257,12 @@ namespace BrainSoup
             da.Fill(dt);
             dataGridView.DataSource = dt;
             con.Close();
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
+
 
         }
         public static void Login(string email,string password,Form login,CheckBox Remember)
@@ -264,6 +318,7 @@ namespace BrainSoup
         }
         public static int isThere(string query)
         {
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
             MySqlDataReader dr;
@@ -282,101 +337,119 @@ namespace BrainSoup
                 con.Close();
                 return 0;
             }
-        }
-            public static void UpdateUser(string name, string surname,  string password)
-        {
-
-            MySqlConnection con;
-            MySqlCommand cmd;
-            MySqlDataReader dr;
-            cmd = new MySqlCommand();
-            con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
-            con.Open();
-            cmd.Connection = con;
-            if (password == "No")
-            {
-                cmd.CommandText = "UPDATE users  SET name = @name ,surname = @surname WHERE email=@email AND user_auth=@user_auth ";
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@surname", surname);
-                cmd.Parameters.AddWithValue("@email", UserInformation.UserEmail);
-              
-                cmd.Parameters.AddWithValue("@user_auth", UserInformation.UserKey);
-
-                cmd.Prepare();
-                cmd.ExecuteNonQuery();
-                con.Close();
             }
-            else
+            catch
             {
-                cmd.CommandText = "UPDATE users  SET name = @name ,surname = @surname ,password = @password WHERE email=@email AND user_auth=@user_auth ";
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@surname", surname);
-                cmd.Parameters.AddWithValue("@email", UserInformation.UserEmail);
-                string mypassword = Encryptor.MD5Hash(password);
-                cmd.Parameters.AddWithValue("@password", mypassword.ToLower());
-                cmd.Parameters.AddWithValue("@user_auth", UserInformation.UserKey);
+                Style.Error("Veritabanına Bağlanılamıyor");
+                return 0;
+            }
 
-                cmd.Prepare();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                if (UserInformation.savedUser[2] == "true")
+        }
+        public static void UpdateUser(string name, string surname,  string password)
+        {
+            try
+            {
+                MySqlConnection con;
+                MySqlCommand cmd;
+                MySqlDataReader dr;
+                cmd = new MySqlCommand();
+                con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
+                con.Open();
+                cmd.Connection = con;
+                if (password == "No")
                 {
-                    using (StreamWriter sw = new StreamWriter(@"auth.txt", false))
-                    {
-                        sw.WriteLine(UserInformation.UserEmail);
-                        sw.WriteLine(password);
-                        sw.WriteLine("true");
-                        sw.Close();
-                    }
+                    cmd.CommandText = "UPDATE users  SET name = @name ,surname = @surname WHERE email=@email AND user_auth=@user_auth ";
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@surname", surname);
+                    cmd.Parameters.AddWithValue("@email", UserInformation.UserEmail);
+
+                    cmd.Parameters.AddWithValue("@user_auth", UserInformation.UserKey);
+
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
                 }
                 else
                 {
-                    using (StreamWriter sw = new StreamWriter(@"auth.txt", false))
-                    {
-                        sw.WriteLine(UserInformation.UserEmail);
-                        sw.WriteLine(password);
-                        sw.WriteLine("false");
-                        sw.Close();
-                    }
+                    cmd.CommandText = "UPDATE users  SET name = @name ,surname = @surname ,password = @password WHERE email=@email AND user_auth=@user_auth ";
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@surname", surname);
+                    cmd.Parameters.AddWithValue("@email", UserInformation.UserEmail);
+                    string mypassword = Encryptor.MD5Hash(password);
+                    cmd.Parameters.AddWithValue("@password", mypassword.ToLower());
+                    cmd.Parameters.AddWithValue("@user_auth", UserInformation.UserKey);
 
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    if (UserInformation.savedUser[2] == "true")
+                    {
+                        using (StreamWriter sw = new StreamWriter(@"auth.txt", false))
+                        {
+                            sw.WriteLine(UserInformation.UserEmail);
+                            sw.WriteLine(password);
+                            sw.WriteLine("true");
+                            sw.Close();
+                        }
+                    }
+                    else
+                    {
+                        using (StreamWriter sw = new StreamWriter(@"auth.txt", false))
+                        {
+                            sw.WriteLine(UserInformation.UserEmail);
+                            sw.WriteLine(password);
+                            sw.WriteLine("false");
+                            sw.Close();
+                        }
+
+                    }
                 }
             }
-        }
-       
-        public static void UpdatePatients(string TC, string name, string surname, string cinsiyet, string birth, string email,string TCSearch)
-        {
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
 
+        }
+
+        public static void UpdatePatients(string id,string TC, string name, string surname, string cinsiyet, string birth, string email,string TCSearch)
+        {
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
-            string userkey;
-            userkey = Encryptor.BuildSecureHexString(64);
+           
             cmd = new MySqlCommand();
             con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
             con.Open();
             cmd.Connection = con;
 
-            cmd.CommandText = "UPDATE patients  SET TC=@TC,name = @name ,surname = @surname ,email = @email,birthdate=@birtdate,cinsiyet=@cinsiyet WHERE TC=@TCsearch AND doctor=@doctor";
+            cmd.CommandText = "UPDATE patients SET TC=@TC,name=@name,surname=@surname,email=@email,birthdate=@birthdate,cinsiyet=@cinsiyet WHERE id=@id AND TC=@TCsearch AND doctor=@doctor";
             cmd.Parameters.AddWithValue("@TC", TC);
-            cmd.Parameters.AddWithValue("@TCsearch", TCSearch);
-
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@surname", surname);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@birthdate", birth);
             cmd.Parameters.AddWithValue("@cinsiyet", cinsiyet);
-            cmd.Parameters.AddWithValue("@doctor", userkey.ToLower());
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@TCsearch", TCSearch);
+
+            cmd.Parameters.AddWithValue("@doctor", UserInformation.UserKey);
 
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             con.Close();
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
+
         }
         public static void InsertPatients(string TC,string name,string surname,string cinsiyet,string birth,string email)
         {
-
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
-            string userkey;
-            userkey = Encryptor.BuildSecureHexString(64);
             cmd = new MySqlCommand();
             con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
             con.Open();
@@ -390,31 +463,43 @@ namespace BrainSoup
             cmd.Parameters.AddWithValue("@birthdate", birth);
             cmd.Parameters.AddWithValue("@cinsiyet", cinsiyet);
             cmd.Parameters.AddWithValue("@date", DateTime.Now.Date.ToString("dd/MM/yyyy"));
-            cmd.Parameters.AddWithValue("@doctor", userkey.ToLower());
+            cmd.Parameters.AddWithValue("@doctor", UserInformation.UserKey);
 
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             con.Close();
-        }
-        public static void DeletePatients(string TC)
-        {
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
 
+        }
+        public static void DeletePatients(string id,string TC)
+        {
+            try { 
             MySqlConnection con;
             MySqlCommand cmd;
-            string userkey;
-            userkey = Encryptor.BuildSecureHexString(64);
+           
             cmd = new MySqlCommand();
             con = new MySqlConnection("Server=" + ServerInformation.server + ";Database=" + ServerInformation.database + ";Uid=" + ServerInformation.user + ";Pwd=" + ServerInformation.password + ";");
             con.Open();
             cmd.Connection = con;
 
-            cmd.CommandText = "UPDATE patients SET ban='1' WHERE TC=@TC AND doctor=@doctor";
+            cmd.CommandText = "UPDATE patients SET ban='1' WHERE id=@id AND TC=@TC AND doctor=@doctor";
             cmd.Parameters.AddWithValue("@TC", TC);
-            cmd.Parameters.AddWithValue("@doctor", userkey.ToLower());
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@doctor", UserInformation.UserKey);
 
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             con.Close();
+            }
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
+
         }
         public static void Register(string name,string surname,string email, string password)
         {

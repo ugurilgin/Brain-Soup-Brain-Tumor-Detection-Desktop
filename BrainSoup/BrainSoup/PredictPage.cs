@@ -318,7 +318,9 @@ namespace BrainSoup
 
         private void Hasta_Click(object sender, EventArgs e)
         {
-
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
         }
 
         private void profilToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -405,22 +407,46 @@ namespace BrainSoup
 
         private void Submit_Click(object sender, EventArgs e)
         {
-           
-            string url = "http://192.168.1.70:5000/apiDesktop";
-            BrainSoupRequest request = new BrainSoupRequest();
-            string response = request.SendImage(url, filePath);
-            MRJson mRJson = JsonConvert.DeserializeObject<MRJson>(response);
-            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+            try
             {
-                Sql.UpdateMR("UPDATE tumor  SET imgloc = '"+mRJson.imgLoc+ "' ,tumorloc ='" + mRJson.tumorLoc + "',result = '" + mRJson.result + "' WHERE ban = '1' AND  TC = '00000000000' AND doctor LIKE '"+UserInformation.UserKey+"' ");
-               //  
+                string url = "http://192.168.1.70:5000/apiDesktop";
+                BrainSoupRequest request = new BrainSoupRequest();
+                string response = request.SendImage(url, filePath);
+                MRJson mRJson = JsonConvert.DeserializeObject<MRJson>(response);
+                if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+                {
+                    try { 
+                        Sql.UpdateMR("UPDATE tumor  SET imgloc = '" + mRJson.imgLoc + "' ,tumorloc ='" + mRJson.tumorLoc + "',result = '" + mRJson.result + "' WHERE ban = '1' AND  TC = '00000000000' AND doctor LIKE '" + UserInformation.UserKey + "' ");
+                        UnsavedPage frm = new UnsavedPage();
+                        frm.Show();
+                        this.Close();
+                    }
 
+                    catch
+                    {
+                        Style.Error("Resim Kaydedilemedi");
+                    }
+
+                }
+                else
+                {
+                    try { 
+                        Sql.UpdateMR("INSERT INTO `tumor` (TC,date,imgloc,tumorloc,doctor,result,ban) VALUES('00000000000','" + DateTime.Now.ToString("yyyy-MM-dd") + "','" + mRJson.imgLoc + "','" + mRJson.tumorLoc + "','" + UserInformation.UserKey + "','" + mRJson.result + "','1')");
+                        UnsavedPage frm = new UnsavedPage();
+                        frm.Show();
+                        this.Close();
+                    }
+                    catch
+                    {
+
+                        Style.Error("Resim Kaydedilemedi");
+                    }
+
+                }
             }
-            else
+            catch
             {
-                Sql.UpdateMR("INSERT INTO `tumor` (TC,date,imgloc,tumorloc,doctor,result,ban) VALUES('00000000000','" + DateTime.Now.ToString("dd-MM-yyyy") + "','" + mRJson.imgLoc + "','" + mRJson.tumorLoc + "','" + UserInformation.UserKey + "','" + mRJson.result + "','1')");
-               
-
+                Style.Error("Resim Yüklenemedi");
             }
             
         }
@@ -459,6 +485,76 @@ namespace BrainSoup
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Style.Maximize(this);
+        }
+
+        private void hastaEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastalarıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastalarıGüncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastaSilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void mRSonuçlarınıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MRViewPage frm = new MRViewPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void MR_Click(object sender, EventArgs e)
+        {
+            MRViewPage frm = new MRViewPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+            {
+                UnsavedPage frm = new UnsavedPage();
+                frm.Show();
+                this.Close();
+            }
+            else
+            {
+                Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
+            }
+        }
+
+        private void kaydedilmemişMRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+            {
+                UnsavedPage frm = new UnsavedPage();
+                frm.Show();
+                this.Close();
+            }
+            else
+            {
+                Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
+            }
         }
     }
 }

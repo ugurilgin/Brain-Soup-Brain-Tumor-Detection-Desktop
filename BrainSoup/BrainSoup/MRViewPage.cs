@@ -17,7 +17,7 @@ namespace BrainSoup
             InitializeComponent();
             menuStrip1.Renderer = new ToolStripProfessionalRenderer(new MyColorTable());
         }
-        string id;
+        string id="";
        
         //Resize Form
         protected override void WndProc(ref Message m)
@@ -310,7 +310,9 @@ namespace BrainSoup
 
         private void Hasta_Click(object sender, EventArgs e)
         {
-
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
         }
 
         private void profilToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -456,6 +458,8 @@ namespace BrainSoup
 
         private void Delete_Click(object sender, EventArgs e)
         {
+            if(TCSearch.Text!="")
+            { 
             try
             {
                 string rslt;
@@ -472,12 +476,114 @@ namespace BrainSoup
             {
                 Style.Error("MR Kaydedilemedi");
             }
+
         }
+            else
+            {
+                 Style.Error("Kayıt Silinemedi"); 
+            }
+}
 
         private void Print_Click(object sender, EventArgs e)
         {
-            Report frm = new Report();
+            if (id != "")
+            {
+                Report frm = new Report();
+                frm.Show();
+            }
+            else
+            {
+                Style.Error("Lütfen Önce Hasta Seçiniz.");
+            }
+        }
+
+        private void hastaEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
             frm.Show();
+            this.Close();
+        }
+
+        private void hastalarıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastalarıGüncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastaSilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+            {
+                UnsavedPage frm = new UnsavedPage();
+                frm.Show();
+                this.Close();
+            }
+            else
+            {
+                Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
+            }
+        }
+
+        private void mRSonuçlarınıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kaydedilmemişMRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+            {
+                UnsavedPage frm = new UnsavedPage();
+                frm.Show();
+                this.Close();
+            }
+            else
+            {
+                Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
+            }
+        }
+
+        private void Rapor_Click(object sender, EventArgs e)
+        {
+            PredictPage frm = new PredictPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void mRİnceleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PredictPage frm = new PredictPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProfilePage frm = new ProfilePage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void Anamenu_Click(object sender, EventArgs e)
+        {
+            Main frm = new Main();
+            frm.Show();
+            this.Close();
         }
     }
 }

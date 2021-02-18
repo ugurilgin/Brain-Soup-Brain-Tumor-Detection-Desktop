@@ -18,7 +18,7 @@ namespace BrainSoup
             InitializeComponent();
             menuStrip1.Renderer = new ToolStripProfessionalRenderer(new MyColorTable());
         }
-
+        string id;
         //Resize Form
         protected override void WndProc(ref Message m)
         {
@@ -403,9 +403,18 @@ namespace BrainSoup
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            try { Sql.DeletePatients(TCSearch.Text); }
+            if(TCSearch.Text !="")
+            { 
+            try { Sql.DeletePatients(id,TCSearch.Text);
+                Refresh_Click(sender, e);
+                Style.Message("Silme İşlemi Başarılı");
+            }
             catch { Style.Error("Kayıt Silinemedi"); }
-           
+            }
+            else
+            {
+                 Style.Error("Kayıt Silinemedi"); 
+            }
         }
 
         private void Update_Click(object sender, EventArgs e)
@@ -419,7 +428,7 @@ namespace BrainSoup
             {
                 if (MailSender.GetValidEmail(Email.Text) == "valid")
                 {
-                    Sql.UpdatePatients(TC.Text, NameT.Text, Surname.Text, Cinsiyet.Text, DateT.Value.Date.ToString(), Email.Text, TCSearch.Text);
+                    Sql.UpdatePatients(id,TC.Text, NameT.Text, Surname.Text, Cinsiyet.Text, DateT.Value.Date.ToString("yyyy-MM-dd"), Email.Text, TCSearch.Text);
                 Refresh_Click(sender, e);
                     Style.Message("Güncelleme Başarılı");
                 }
@@ -445,7 +454,7 @@ namespace BrainSoup
                 {
                     if (MailSender.GetValidEmail(Email.Text) == "valid")
                     {
-                        Sql.InsertPatients(TC.Text, NameT.Text, Surname.Text, Cinsiyet.Text, DateT.Value.Date.ToString(), Email.Text);
+                        Sql.InsertPatients(TC.Text, NameT.Text, Surname.Text, Cinsiyet.Text, DateT.Value.Date.ToString("yyyy-MM-dd"), Email.Text);
                         Refresh_Click(sender, e);
                         Style.Message("Kayıt Başarılı");
                     }
@@ -464,6 +473,7 @@ namespace BrainSoup
         {
             Update.Visible = true;
             Submit.Visible = false;
+            id= DataView.CurrentRow.Cells[0].Value.ToString();
             TC.Text=DataView.CurrentRow.Cells[1].Value.ToString();
             TCSearch.Text = DataView.CurrentRow.Cells[1].Value.ToString();
             NameT.Text= DataView.CurrentRow.Cells[2].Value.ToString();
@@ -483,6 +493,69 @@ namespace BrainSoup
         {
             Anamenu.BackColor = Color.FromArgb(0, 117, 213);
             Anamenu.ForeColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private void mRSonuçlarınıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MRViewPage frm = new MRViewPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void MR_Click(object sender, EventArgs e)
+        {
+            MRViewPage frm = new MRViewPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void kaydedilmemişMRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+            {
+                UnsavedPage frm = new UnsavedPage();
+                frm.Show();
+                this.Close();
+            }
+            else
+            {
+                Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+            {
+                UnsavedPage frm = new UnsavedPage();
+                frm.Show();
+                this.Close();
+            }
+            else
+            {
+                Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
+            }
+        }
+
+        private void Rapor_Click(object sender, EventArgs e)
+        {
+            PredictPage frm = new PredictPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void mRİnceleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PredictPage frm = new PredictPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProfilePage frm = new ProfilePage();
+            frm.Show();
+            this.Close();
         }
     }
 }

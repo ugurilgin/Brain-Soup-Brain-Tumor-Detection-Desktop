@@ -193,6 +193,7 @@
             this.hastaEkleToolStripMenuItem.Name = "hastaEkleToolStripMenuItem";
             this.hastaEkleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.hastaEkleToolStripMenuItem.Text = "Hasta Ekle";
+            this.hastaEkleToolStripMenuItem.Click += new System.EventHandler(this.hastaEkleToolStripMenuItem_Click);
             // 
             // hastalarıGörüntüleToolStripMenuItem
             // 
@@ -202,6 +203,7 @@
             this.hastalarıGörüntüleToolStripMenuItem.Name = "hastalarıGörüntüleToolStripMenuItem";
             this.hastalarıGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.hastalarıGörüntüleToolStripMenuItem.Text = "Hastaları Görüntüle";
+            this.hastalarıGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.hastalarıGörüntüleToolStripMenuItem_Click);
             // 
             // hastalarıGüncelleToolStripMenuItem
             // 
@@ -211,6 +213,7 @@
             this.hastalarıGüncelleToolStripMenuItem.Name = "hastalarıGüncelleToolStripMenuItem";
             this.hastalarıGüncelleToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.hastalarıGüncelleToolStripMenuItem.Text = "Hastaları Güncelle";
+            this.hastalarıGüncelleToolStripMenuItem.Click += new System.EventHandler(this.hastalarıGüncelleToolStripMenuItem_Click);
             // 
             // hastaSilToolStripMenuItem
             // 
@@ -220,6 +223,7 @@
             this.hastaSilToolStripMenuItem.Name = "hastaSilToolStripMenuItem";
             this.hastaSilToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.hastaSilToolStripMenuItem.Text = "Hasta Sil";
+            this.hastaSilToolStripMenuItem.Click += new System.EventHandler(this.hastaSilToolStripMenuItem_Click);
             // 
             // mRToolStripMenuItem
             // 
@@ -250,6 +254,7 @@
             this.kaydedilmemişMRToolStripMenuItem.Name = "kaydedilmemişMRToolStripMenuItem";
             this.kaydedilmemişMRToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.kaydedilmemişMRToolStripMenuItem.Text = "Kaydedilmemiş MR";
+            this.kaydedilmemişMRToolStripMenuItem.Click += new System.EventHandler(this.kaydedilmemişMRToolStripMenuItem_Click);
             // 
             // mRSonuçlarınıGörüntüleToolStripMenuItem
             // 
@@ -259,6 +264,7 @@
             this.mRSonuçlarınıGörüntüleToolStripMenuItem.Name = "mRSonuçlarınıGörüntüleToolStripMenuItem";
             this.mRSonuçlarınıGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.mRSonuçlarınıGörüntüleToolStripMenuItem.Text = "MR Sonuçlarını Görüntüle";
+            this.mRSonuçlarınıGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.mRSonuçlarınıGörüntüleToolStripMenuItem_Click);
             // 
             // oturumuKapatToolStripMenuItem
             // 
@@ -373,6 +379,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Kaydedilmemiş MR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Rapor
             // 
@@ -430,6 +437,7 @@
             this.MR.TabIndex = 3;
             this.MR.Text = "MR Görüntüleri\r\n";
             this.MR.UseVisualStyleBackColor = true;
+            this.MR.Click += new System.EventHandler(this.MR_Click);
             this.MR.MouseEnter += new System.EventHandler(this.MR_MouseEnter);
             this.MR.MouseLeave += new System.EventHandler(this.MR_MouseLeave);
             // 
@@ -574,11 +582,12 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1366, 768);
             this.Name = "PredictPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
+            this.Text = "MR İncele";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

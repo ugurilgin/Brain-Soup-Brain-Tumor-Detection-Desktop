@@ -51,30 +51,36 @@ namespace BrainSoup
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            string path = System.AppDomain.CurrentDomain.BaseDirectory;
-            string allpath = path + "auth.txt";
-            if (Email.Text == "")
+            try
             {
-                mailProvider.SetError(Email, "Bu Alan Boş Geçilemez");
-               
-            }
-            if (Password.Text == "")
-            {
-                passwordProvider.SetError(Password, "Bu Alan Boş Geçilemez");
-                
-            }
-            if (Email.Text != "" && Password.Text != "")
-            {
-                Sql.Login(Email.Text, Password.Text,this,Remember);
+                string path = System.AppDomain.CurrentDomain.BaseDirectory;
+                string allpath = path + "auth.txt";
+                if (Email.Text == "")
+                {
+                    mailProvider.SetError(Email, "Bu Alan Boş Geçilemez");
 
-               
-           
-                
+                }
+                if (Password.Text == "")
+                {
+                    passwordProvider.SetError(Password, "Bu Alan Boş Geçilemez");
 
+                }
+                if (Email.Text != "" && Password.Text != "")
+                {
+                    Sql.Login(Email.Text, Password.Text, this, Remember);
+
+
+
+
+
+                }
+                else
+                    Style.Error("Lütfen Tüm Alanları Doldurunuz");
             }
-            else
-                Style.Error("Lütfen Tüm Alanları Doldurunuz");
-          
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
 
 
         }

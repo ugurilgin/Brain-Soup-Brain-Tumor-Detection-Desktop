@@ -42,51 +42,60 @@ namespace BrainSoup
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            if (NameT.Text == "")
+            try
             {
-                nameProvider.SetError(NameT, "Bu Alan Boş Geçilemez");
-
-            }
-            if (Surname.Text == "")
-            {
-                surnameProvider.SetError(Surname, "Bu Alan Boş Geçilemez");
-
-            }
-            if (Email.Text == "")
-            {
-                mailProvider.SetError(Email, "Bu Alan Boş Geçilemez");
-               
-            }
-            if (Password.Text == "")
-            {
-                passwordProvider.SetError(Password, "Bu Alan Boş Geçilemez");
-                
-            }
-            if(NameT.Text !="" && Surname.Text!=""&&Email.Text !="" && Password.Text!="")
-            {
-                if (MailSender.GetValidEmail(Email.Text) == "valid" )
+                if (NameT.Text == "")
                 {
-                    if (Sql.EmailControl(Email.Text)==false)
+                    nameProvider.SetError(NameT, "Bu Alan Boş Geçilemez");
 
-                    {
-                        Sql.Register(NameT.Text, Surname.Text, Email.Text, Password.Text); }
-                   
-                    else
-
-                    {
-                        Style.Error("Bu Mail Adresi Zaten Kullanılıyor");
-                    }
-                        
                 }
-                else
-                    Style.Error("Lütfen Geçerli Bir Mail Adresi Giriniz");
+                if (Surname.Text == "")
+                {
+                    surnameProvider.SetError(Surname, "Bu Alan Boş Geçilemez");
+
+                }
+                if (Email.Text == "")
+                {
+                    mailProvider.SetError(Email, "Bu Alan Boş Geçilemez");
+
+                }
+                if (Password.Text == "")
+                {
+                    passwordProvider.SetError(Password, "Bu Alan Boş Geçilemez");
+
+                }
+                if (NameT.Text != "" && Surname.Text != "" && Email.Text != "" && Password.Text != "")
+                {
+                    if (MailSender.GetValidEmail(Email.Text) == "valid")
+                    {
+                        if (Sql.EmailControl(Email.Text) == false)
+
+                        {
+                            Sql.Register(NameT.Text, Surname.Text, Email.Text, Password.Text);
+                        }
+
+                        else
+
+                        {
+                            Style.Error("Bu Mail Adresi Zaten Kullanılıyor");
+                        }
+
+                    }
+                    else
+                        Style.Error("Lütfen Geçerli Bir Mail Adresi Giriniz");
+                }
+
             }
-           
+             
+            catch
+            {
+                Style.Error("Veritabanına Bağlanılamıyor");
+            }
 
 
-        }
+}
 
-        private void LoginPage_MouseDown(object sender, MouseEventArgs e)
+private void LoginPage_MouseDown(object sender, MouseEventArgs e)
         {
             Draggable.mouseDown = true;
             Draggable.lastLocation = e.Location;

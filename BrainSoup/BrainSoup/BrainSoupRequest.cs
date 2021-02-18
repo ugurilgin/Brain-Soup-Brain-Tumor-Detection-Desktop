@@ -60,7 +60,7 @@ namespace BrainSoup
             }
             catch
             {
-                Style.Error("Resim Yüklenemedi");
+                
                 return "Hata";
             }
         }

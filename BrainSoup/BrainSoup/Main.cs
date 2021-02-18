@@ -477,5 +477,61 @@ namespace BrainSoup
             frm.Show();
             this.Close();
         }
+
+        private void hastaEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastalarıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastalarıGüncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void hastaSilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void mRSonuçlarınıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MRViewPage frm = new MRViewPage();
+            frm.Show();
+            this.Close();
+        }
+
+        private void kaydedilmemişMRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+            {
+                UnsavedPage frm = new UnsavedPage();
+                frm.Show();
+                this.Close();
+            }
+            else
+            {
+                Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
+            }
+        }
+
+        private void mRİnceleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PredictPage frm = new PredictPage();
+            frm.Show();
+            this.Close();
+        }
     }
 }
