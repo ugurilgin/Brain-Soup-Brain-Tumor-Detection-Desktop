@@ -199,9 +199,7 @@ namespace BrainSoup
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Register frm = new Register();
-            frm.Show();
-            this.Hide();
+            Opener.Register(this);
         }
     }
 }

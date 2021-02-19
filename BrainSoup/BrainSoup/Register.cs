@@ -193,9 +193,7 @@ private void LoginPage_MouseDown(object sender, MouseEventArgs e)
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            LoginPage frm = new LoginPage();
-            frm.Show();
-            this.Close();
+            Opener.Login(this);
         }
     }
 }

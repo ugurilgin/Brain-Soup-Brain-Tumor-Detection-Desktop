@@ -8,6 +8,78 @@ using System.Windows.Forms;
 
 namespace BrainSoup
 {
+    class Opener
+    {
+        public static void Login(Form main)
+        {
+            LoginPage frm = new LoginPage();
+            frm.Show();
+            main.Close();
+
+        }
+        public static void Register(Form main)
+        {
+
+            Register frm = new Register();
+            frm.Show();
+            main.Hide();
+        }
+        public static void PatientPage(Form main)
+        {
+            PatientPage frm = new PatientPage();
+            frm.Show();
+            main.Close();
+
+        }
+        public static void UnsavedPage(Form main)
+        {
+            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
+            {
+                UnsavedPage frm = new UnsavedPage();
+                frm.Show();
+                main.Close();
+            }
+            else
+            {
+                Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
+            }
+           
+
+        }
+        public static void MRView(Form main)
+        {
+            MRViewPage frm = new MRViewPage();
+            frm.Show();
+            main.Close();
+
+        }
+        public static void MRPredict(Form main)
+        {
+            PredictPage frm = new PredictPage();
+            frm.Show();
+            main.Close();
+
+        }
+        public static void Report(Form main)
+        {
+
+
+        }
+        public static void Profile(Form main)
+        {
+            ProfilePage frm = new ProfilePage();
+            frm.Show();
+            main.Close();
+
+        }
+        public static void Main(Form main)
+        {
+            Main frm = new Main();
+            frm.Show();
+            main.Close();
+
+        }
+    }
     class ErrorInformation 
     {
         public static string Message { get; set; }

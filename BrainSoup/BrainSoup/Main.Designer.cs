@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Minimize = new System.Windows.Forms.PictureBox();
@@ -90,6 +90,7 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.SumHMR = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
@@ -373,6 +374,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.panel3.Controls.Add(this.linkLabel1);
             this.panel3.Controls.Add(this.Profile);
             this.panel3.Controls.Add(this.UnsavedMR);
             this.panel3.Controls.Add(this.pictureBox1);
@@ -559,18 +561,18 @@
             // statePatient
             // 
             this.statePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            chartArea3.Name = "ChartArea1";
-            this.statePatient.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.statePatient.Legends.Add(legend3);
+            chartArea5.Name = "ChartArea1";
+            this.statePatient.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.statePatient.Legends.Add(legend5);
             this.statePatient.Location = new System.Drawing.Point(91, 3);
             this.statePatient.Name = "statePatient";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Toplam Hasta Yaş Dağılımı";
-            series3.YValuesPerPoint = 2;
-            this.statePatient.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.Legend = "Legend1";
+            series5.Name = "Toplam Hasta Yaş Dağılımı";
+            series5.YValuesPerPoint = 2;
+            this.statePatient.Series.Add(series5);
             this.statePatient.Size = new System.Drawing.Size(325, 249);
             this.statePatient.TabIndex = 0;
             this.statePatient.Text = "chart1";
@@ -628,17 +630,17 @@
             // stateCins
             // 
             this.stateCins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            chartArea4.Name = "ChartArea1";
-            this.stateCins.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.stateCins.Legends.Add(legend4);
+            chartArea6.Name = "ChartArea1";
+            this.stateCins.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.stateCins.Legends.Add(legend6);
             this.stateCins.Location = new System.Drawing.Point(91, 6);
             this.stateCins.Name = "stateCins";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Cinsiyet";
-            this.stateCins.Series.Add(series4);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series6.Legend = "Legend1";
+            series6.Name = "Cinsiyet";
+            this.stateCins.Series.Add(series6);
             this.stateCins.Size = new System.Drawing.Size(325, 249);
             this.stateCins.TabIndex = 2;
             this.stateCins.Text = "chart5";
@@ -904,6 +906,20 @@
             this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseMove);
             this.label5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseUp);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(3, 671);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(187, 13);
+            this.linkLabel1.TabIndex = 6;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "© 2021 Uğur Ilgın All Rights Reserved";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -931,6 +947,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
@@ -1013,5 +1030,6 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

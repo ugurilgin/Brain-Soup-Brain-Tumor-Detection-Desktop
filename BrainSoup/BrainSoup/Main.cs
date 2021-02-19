@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -341,23 +342,17 @@ namespace BrainSoup
      
         private void oturumuKapatToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            LoginPage frm = new LoginPage();
-            frm.Show();
-            this.Close();
+            Opener.Login(this);
         }
 
         private void Hasta_Click(object sender, EventArgs e)
         {
-            PatientPage frm = new PatientPage();
-            frm.Show();
-            this.Close();
+            Opener.PatientPage(this);
         }
 
         private void profilToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ProfilePage frm = new ProfilePage();
-            frm.Show();
-            this.Close();
+            Opener.Profile(this);
         }
 
         private void label2_MouseDown(object sender, MouseEventArgs e)
@@ -440,16 +435,12 @@ namespace BrainSoup
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ProfilePage frm = new ProfilePage();
-            this.Close();
-            frm.Show();
+            Opener.Profile(this);
         }
 
         private void Rapor_Click(object sender, EventArgs e)
         {
-            PredictPage frm = new PredictPage();
-            frm.Show();
-            this.Close();
+            Opener.MRPredict(this);
         }
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -459,79 +450,54 @@ namespace BrainSoup
 
         private void UnsavedMR_Click(object sender, EventArgs e)
         {
-            if(Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='"+UserInformation.UserKey+"'")==1)
-            { 
-            UnsavedPage frm = new UnsavedPage();
-            frm.Show();
-            this.Close();
-            }
-            else
-            { 
-            Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
-            }
+           
+                Opener.UnsavedPage(this); 
+            
         }
 
         private void MR_Click(object sender, EventArgs e)
         {
-            MRViewPage frm = new MRViewPage();
-            frm.Show();
-            this.Close();
+            Opener.MRView(this);
         }
 
         private void hastaEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PatientPage frm = new PatientPage();
-            frm.Show();
-            this.Close();
+            Opener.PatientPage(this);
         }
 
         private void hastalarıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PatientPage frm = new PatientPage();
-            frm.Show();
-            this.Close();
+            Opener.PatientPage(this);
         }
 
         private void hastalarıGüncelleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PatientPage frm = new PatientPage();
-            frm.Show();
-            this.Close();
+            Opener.PatientPage(this);
         }
 
         private void hastaSilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PatientPage frm = new PatientPage();
-            frm.Show();
-            this.Close();
+            Opener.PatientPage(this);
         }
 
         private void mRSonuçlarınıGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MRViewPage frm = new MRViewPage();
-            frm.Show();
-            this.Close();
+            Opener.MRView(this);
         }
 
         private void kaydedilmemişMRToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Sql.isThere("SELECT * from tumor WHERE TC='00000000000' AND doctor='" + UserInformation.UserKey + "'") == 1)
-            {
-                UnsavedPage frm = new UnsavedPage();
-                frm.Show();
-                this.Close();
-            }
-            else
-            {
-                Style.Error("Kaydedilmemiş Kayıt Bulunamadı");
-            }
+            Opener.UnsavedPage(this);
         }
 
         private void mRİnceleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PredictPage frm = new PredictPage();
-            frm.Show();
-            this.Close();
+            Opener.MRPredict(this);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://ugurilgin.github.io");
         }
     }
 }

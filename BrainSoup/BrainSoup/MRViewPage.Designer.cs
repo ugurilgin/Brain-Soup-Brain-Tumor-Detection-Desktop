@@ -79,6 +79,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Search = new System.Windows.Forms.PictureBox();
             this.DataView = new System.Windows.Forms.DataGridView();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
@@ -304,7 +305,7 @@
             this.profilToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.profilToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("profilToolStripMenuItem1.Image")));
             this.profilToolStripMenuItem1.Name = "profilToolStripMenuItem1";
-            this.profilToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.profilToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.profilToolStripMenuItem1.Text = "Profil";
             this.profilToolStripMenuItem1.Click += new System.EventHandler(this.profilToolStripMenuItem1_Click);
             // 
@@ -314,7 +315,7 @@
             this.oturumuKapatToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.oturumuKapatToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("oturumuKapatToolStripMenuItem1.Image")));
             this.oturumuKapatToolStripMenuItem1.Name = "oturumuKapatToolStripMenuItem1";
-            this.oturumuKapatToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.oturumuKapatToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.oturumuKapatToolStripMenuItem1.Text = "Oturumu Kapat";
             this.oturumuKapatToolStripMenuItem1.Click += new System.EventHandler(this.oturumuKapatToolStripMenuItem1_Click);
             // 
@@ -357,6 +358,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(213)))));
+            this.panel3.Controls.Add(this.linkLabel1);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.Rapor);
@@ -780,6 +782,20 @@
             this.DataView.TabIndex = 1;
             this.DataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataView_CellContentClick);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(3, 672);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(187, 13);
+            this.linkLabel1.TabIndex = 11;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "© 2021 Uğur Ilgın All Rights Reserved";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // MRViewPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -807,6 +823,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -875,5 +892,6 @@
         private System.Windows.Forms.PictureBox Print;
         private System.Windows.Forms.PictureBox Refresh;
         private System.Windows.Forms.PictureBox Delete;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
